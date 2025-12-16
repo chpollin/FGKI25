@@ -41,7 +41,17 @@
 - [ ] .mg/commits.md: Commit dokumentieren
 
 ## User-Feedback
-<!-- Hier kommt Feedback vom User rein -->
+
+### Session 3 - Visual Check (16.12.2025)
+- Breadcrumb Nav: ✅ Funktioniert, Pfad aktualisiert beim Scrollen
+- Console Player: ✅ Sieht gut aus, Terminal-Vibe erreicht
+- Bilder: ✅ Laden korrekt (promptotyping-sphere, vibe-coding-tweet)
+- Progress Bar: ✅ Mit Glow-Effekt
+- Tags: ✅ Monospace-Style
+
+### Verbesserungsideen
+- [ ] Progress Bar evtl. 3px statt 2px
+- [ ] Console Player Link-Icon größer machen
 
 ---
 *Letzte Aktualisierung: Session 3, 16. Dezember 2025*
