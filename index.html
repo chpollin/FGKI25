@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(Frontier-)Generative KI 2025 | Christopher Pollin</title>
+  <meta name="description" content="Ja, nein, vielleicht, don't panic, learn. Ein Forschungsblog zur Generativen KI 2025 von Christopher Pollin.">
+  <meta name="author" content="Christopher Pollin">
+  <meta name="keywords" content="Generative KI, LLM, Frontier AI, Digital Humanities, Promptotyping, 2025">
+
+  <!-- OG Tags -->
+  <meta property="og:title" content="(Frontier-)Generative KI 2025">
+  <meta property="og:description" content="Ja, nein, vielleicht, don't panic, learn. Ein Forschungsblog von Christopher Pollin.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chpollin.github.io/FGKI25">
+  <meta property="og:locale" content="de_DE">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="(Frontier-)Generative KI 2025">
+  <meta name="twitter:description" content="Ja, nein, vielleicht, don't panic, learn.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/typography.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-content">
+      <button class="menu-toggle" aria-label="Navigation öffnen" aria-expanded="false">
+        <span class="menu-icon"></span>
+      </button>
+      <nav class="chapter-nav" aria-label="Kapitel-Navigation">
+        <a href="#intro" class="chapter-nav-item" data-chapter="intro">Intro</a>
+        <a href="#januar-schock" class="chapter-nav-item" data-chapter="januar-schock">Januar-Schock</a>
+        <a href="#reasoning-monopoly" class="chapter-nav-item" data-chapter="reasoning-monopoly">Reasoning</a>
+        <a href="#agentische-systeme" class="chapter-nav-item" data-chapter="agentische-systeme">Agents</a>
+        <a href="#forscher-exodus" class="chapter-nav-item" data-chapter="forscher-exodus">Exodus</a>
+        <a href="#infrastruktur" class="chapter-nav-item" data-chapter="infrastruktur">Infrastruktur</a>
+        <a href="#scaling" class="chapter-nav-item" data-chapter="scaling">Scaling</a>
+        <a href="#context-engineering" class="chapter-nav-item" data-chapter="context-engineering">Context</a>
+        <a href="#research-agents" class="chapter-nav-item" data-chapter="research-agents">Research</a>
+        <a href="#aji" class="chapter-nav-item" data-chapter="aji">AJI</a>
+        <a href="#critical-expert" class="chapter-nav-item" data-chapter="critical-expert">Expert</a>
+        <a href="#hard-problems" class="chapter-nav-item" data-chapter="hard-problems">Problems</a>
+        <a href="#trotzdem" class="chapter-nav-item" data-chapter="trotzdem">trotzdem</a>
+        <a href="#schluss" class="chapter-nav-item" data-chapter="schluss">Schluss</a>
+      </nav>
+      <button class="theme-toggle" aria-label="Farbschema wechseln">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" class="blog-content">
+    <article>
+
+      <!-- Einleitung -->
+      <section id="intro" class="chapter chapter--intro">
+        <div class="chapter-content">
+          <header class="chapter-header">
+            <h1 class="site-title">(Frontier-)Generative KI 2025</h1>
+            <p class="site-subtitle">Ja, nein, vielleicht, don't panic, learn.</p>
+            <div class="author-info">
+              <p class="author-name">Christopher Pollin</p>
+              <p class="author-org">Digital Humanities Craft OG | Universität Graz</p>
+              <time datetime="2025-12">Dezember 2025</time>
+            </div>
+          </header>
+          <div class="chapter-text">
+            <p class="lead">Das Jahr 2025 war das Jahr, in dem generative KI aufhörte, Versprechen zu sein, und anfing, Realität zu werden. Nicht die Realität, die manche prophezeit hatten, weder Utopie noch Apokalypse, sondern eine kompliziertere Realität, in der Systeme funktionieren und Probleme bleiben, in der Durchbrüche und Disruption gleichzeitig stattfinden.</p>
+            <p>Dieser Rückblick versucht, das Jahr aus der Perspektive eines Forschers und Praktikers zu dokumentieren, der diese Systeme täglich einsetzt. Er synthetisiert Material aus zehn Vorträgen, die ich 2025 gehalten habe, aus laufender Quellenrecherche und aus der eigenen Arbeit mit Frontier-Modellen in Forschung und Lehre.</p>
+            <p>Die Leitfrage stammt aus meinem Oktober-Vortrag. Muss man auf den "Tech-Bro-AGI-Hypetrain" aufspringen? Die Antwort, die sich durch diesen Text zieht, ist dialektisch. Ja, weil die Entwicklung real ist. Nein, weil unkritische Übernahme die strukturellen Probleme ignoriert. Die Position ist kritische Teilnahme. Nutzen, was funktioniert. Benennen, was problematisch bleibt. Lernen als konstruktiver Imperativ.</p>
+          </div>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true">
+          <span>Scroll</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+      </section>
+
+      <!-- Kapitel 1: Der Januar-Schock -->
+      <section id="januar-schock" class="chapter" data-color="#f87171">
+        <div class="chapter-content">
+          <header class="chapter-header">
+            <span class="chapter-number">01</span>
+            <h2>Der Januar-Schock</h2>
+            <div class="chapter-keywords">
+              <span class="keyword">DeepSeek</span>
+              <span class="keyword">R1</span>
+              <span class="keyword">Europa</span>
+              <span class="keyword">Effizienz</span>
+            </div>
+          </header>
+          <div class="chapter-text">
+            <p>Das Jahr begann mit DeepSeek. Am 27. Januar 2025 veröffentlichte das chinesische Unternehmen R1, ein Reasoning-Modell, das mit einem Bruchteil der Trainingskosten amerikanischer Frontier-Modelle konkurrenzfähige Ergebnisse erzielte. Die amerikanische Tech-Presse sprach vom "Sputnik-Moment". Nvidia verlor kurzzeitig erheblichen Börsenwert.</p>
+            <p>Die technische Leistung war beeindruckend, aber die eigentliche Frage war eine andere. In meinem Vortrag im Januar stellte ich sie so. "Sind alle intelligenter als Europa?" DeepSeek zeigte, dass Effizienz wichtiger werden könnte als Brute-Force-Scaling. China demonstrierte, dass der amerikanische Weg, immer größere Modelle mit immer mehr Compute zu trainieren, nicht der einzige ist.</p>
+            <p>Europa hat weder die Ressourcen für den amerikanischen Ansatz noch die strategische Fokussierung für den chinesischen. Der Januar-Schock war für das deutschsprachige Publikum vor allem ein Spiegel der eigenen Leerstelle. Während in Washington und Peking über "Manhattan Projects" für KI diskutiert wurde, diskutierte Europa über Regulierung.</p>
+            <p>Die chinesischen Modelle haben 2025 weiter aufgeholt. DeepSeek war der Anfang, nicht das Ende dieser Geschichte.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kapitel 2: Das Reasoning-Monopoly -->
+      <section id="reasoning-monopoly" class="chapter" data-color="#3b82f6">
+        <div class="chapter-content">
+          <header class="chapter-header">
+            <span class="chapter-number">02</span>
+            <h2>Das Reasoning-Monopoly</h2>
+            <div class="chapter-keywords">
+              <span class="keyword">OpenAI</span>
+              <span class="keyword">o1</span>
+              <span class="keyword">o3</span>
+              <span class="keyword">Gemini</span>
+              <span class="keyword">Test-Time Compute</span>
+            </div>
+          </header>
+          <div class="chapter-text">
+            <p>Das erste Quartal 2025 stand im Zeichen des Wettlaufs um Reasoning-Fähigkeiten. OpenAI positionierte o1 und später o3 als "denkende" Modelle. Google konterte mit Gemini 2.0 und später Gemini 3. Anthropic verbesserte Claude kontinuierlich. DeepSeek R1 störte die Annahme, dass nur amerikanische Hyperscaler solche Modelle bauen können.</p>
+            <p>In meinem Vortrag "Das große Monopoly um das Reasoning" beschrieb ich die Dynamik. Alle großen Labs optimieren auf dieselben Fähigkeiten, also Mathematik, Logik, mehrstufiges Schließen und Tool Use. Die Differenzierung liegt nicht mehr im Was, sondern im Wie.</p>
+            <p>Die technische Verschiebung dahinter ist der Übergang von Pre-Training Scaling zu Test-Time Compute. Statt immer größere Modelle zu trainieren, werden die Modelle darauf optimiert, während der Inferenz länger "nachzudenken". Andrej Karpathys Konzept der "Three Eras of LLM Training" beschreibt diese Verschiebung. Ära 1 war Pre-Training mit mehr Daten und mehr Parametern. Ära 2 ist Post-Training mit RLHF, Constitutional AI und Instruction Tuning. Ära 3 ist Test-Time Compute mit Reasoning-Schleifen, Mehrfachgenerierung und Selbstverifikation.</p>
+            <p>Die Reasoning-Modelle sind das sichtbarste Produkt dieser dritten Ära. Sie denken länger nach, bevor sie antworten. Sie probieren mehrere Lösungswege und wählen den besten. Sie können Tools aufrufen und Ergebnisse verifizieren. Das macht sie langsamer, aber zuverlässiger bei komplexen Aufgaben.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kapitel 3: Agentische Systeme funktionieren -->
+      <section id="agentische-systeme" class="chapter" data-color="#4ade80">
+        <div class="chapter-content">
+          <header class="chapter-header">
+            <span class="chapter-number">03</span>
+            <h2>Agentische Systeme funktionieren</h2>
+            <div class="chapter-keywords">
+              <span class="keyword">Claude Code</span>
+              <span class="keyword">Agents</span>
+              <span class="keyword">Amodei</span>
+              <span class="keyword">Expert:innen-Amplifikation</span>
+            </div>
+          </header>
+          <div class="chapter-text">
+            <p>Die zentrale technische Entwicklung des Jahres war das Funktionieren agentischer Systeme. Anfang 2025 waren "AI Agents" vor allem Ankündigung. Marketing-Material versprach autonome Assistenten, die komplexe Aufgaben selbstständig erledigen würden. Die Realität war ernüchternd. Die Systeme brachen ab, verloren den Kontext, machten grundlegende Fehler.</p>
+            <p>Ende 2025 hat sich das geändert. Agentische Systeme wie Claude Code bearbeiten komplexe Coding-Aufgaben autonom über Stunden. Das Post-Training der Modelle wurde gezielt auf agentisches Verhalten optimiert, insbesondere auf Tool Use, langes kontextbewusstes Arbeiten und Multi-Agenten-Koordination.</p>
+            <p>In meinem Oktober-Vortrag unterschied ich zwischen zwei Konzepten. "AI Agents" sind autonome, modular aufgebaute Systeme, meist um ein LLM, die innerhalb eines klar begrenzten Aufgabenbereichs Ziele ausführen. Typisch sind Tool-Aufrufe, einfache Planung in Sequenzen, reaktive Anpassung und Autonomie nur im engen Scope. "Agentic AI" ist der nächste Entwicklungsschritt mit koordinierten Verbünden spezialisierter Agenten. Kennzeichen sind dynamische Zielzerlegung, inter-agentische Kommunikation, persistente Speicher, Orchestrierung durch Meta-Agenten und dadurch breitere, längerfristige Autonomie.</p>
+            <p>Für meine eigene Arbeit bedeutet das konkret, dass ich keinen Code mehr selbst schreibe. Dario Amodeis Prognose vom März 2025, dass AI bald "essentially all of the code" schreiben könnte, war umstritten. IBMs CEO widersprach öffentlich. Für meine forschungsdatengetriebenen Projekte, für das Promptotyping von Forschungstools aus CMIF-Daten oder NFDI-Wissensgraphen, hat sie sich bewahrheitet. Ob das verallgemeinerbar ist, bleibt offen.</p>
+            <p>Die Reaktionen aus der Praxis bestätigen die Beobachtung. Bei meinen Museum-Workshops waren die Kunsthistorikerinnen, die sich auf Glasmalerei spezialisiert haben, beeindruckt von der Qualität der Bildbeschreibungen. "Hoffentlich werden wir nicht bald arbeitslos!", sagte eine Teilnehmerin. Eine andere meinte, sie müsse ihr Leben überdenken. Das ist nicht Ersetzung, aber es ist auch nicht trivial. Es ist das, was ich "Expert:innen-Amplifikation" nenne. Die Systeme verstärken, was Fachleute können. Sie ersetzen nicht, was Fachleute wissen.</p>
+            <figure class="chapter-image">
+              <img src="assets/images/promptotyping-sphere.png"
+                   alt="Diagramm des Promptotyping-Konzepts: Drei überlappende Kreise für Research Data, Domain Expertise und Context Engineering, die sich im Zentrum zu 'Promptotyping' vereinen und Research Artefacts erzeugen."
+                   loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="image-fallback" style="display:none;">
+                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Promptotyping-Konzept Placeholder">
+                  <rect fill="var(--bg-secondary)" width="400" height="300"/>
+                  <circle cx="200" cy="150" r="100" fill="none" stroke="var(--color-agents)" stroke-width="2" opacity="0.3"/>
+                  <circle cx="200" cy="150" r="70" fill="none" stroke="var(--color-agents)" stroke-width="2" opacity="0.5"/>
+                  <circle cx="200" cy="150" r="40" fill="var(--color-agents)" opacity="0.2"/>
+                  <text x="120" y="80" fill="var(--text-muted)" font-size="10">Research Data</text>
+                  <text x="240" y="80" fill="var(--text-muted)" font-size="10">Domain Expertise</text>
+                  <text x="160" y="240" fill="var(--text-muted)" font-size="10">Context Engineering</text>
+                  <text x="200" y="155" text-anchor="middle" fill="var(--text-primary)" font-size="12" font-weight="600">Promptotyping</text>
+                </svg>
+              </div>
+              <figcaption>
+                <strong>Abb. 1: Promptotyping als Transformationsprozess.</strong>
+                Forschungsdaten, Domänenexpertise und Context Engineering verbinden sich zu Research Artefacts.
+                <span class="caption-source">Aus dem Vortrag zur ÖAW AI Winter School 2026.</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kapitel 4: Die Forscher verlassen die Konzerne -->
+      <section id="forscher-exodus" class="chapter" data-color="#fb923c">
+        <div class="chapter-content">
+          <header class="chapter-header">
+            <span class="chapter-number">04</span>
+            <h2>Die Forscher verlassen die Konzerne</h2>
+            <div class="chapter-keywords">
+              <span class="keyword">Sutskever</span>
+              <span class="keyword">SSI</span>
+              <span class="keyword">LeCun</span>
+              <span class="keyword">AMI</span>
+              <span class="keyword">Murati</span>
+            </div>
+          </header>
+          <div class="chapter-text">
+            <p>Der Exodus der führenden KI-Forscher begann 2024 und setzte sich 2025 fort. Die Architekten der aktuellen KI-Generation verließen die großen Labs und gründeten spezialisierte Unternehmen für die nächste Generation von Technologien.</p>
+            <p>Ilya Sutskever verließ OpenAI im Mai 2024 nach dem Konflikt um Sam Altman und gründete SSI, Safe Superintelligence Inc. Im März 2025 erreichte die Firma eine Bewertung von 32 Milliarden Dollar bei etwa 20 Mitarbeitern und keinem Produkt. Der einzige Fokus ist sichere Superintelligenz. "We have one goal and one product: a safe superintelligence", steht auf der Website. Meta versuchte, SSI zu kaufen, wurde aber abgewiesen. Sutskever wurde im Juli 2025 CEO, nachdem Co-Founder Daniel Gross zu Metas neuem Superintelligence Lab wechselte.</p>
+            <p>Yann LeCun kündigte im November 2025 seinen Abschied von Meta an. Nach 12 Jahren als Chief AI Scientist, davon 5 Jahre als Gründungsdirektor von FAIR, gründet er ein Startup für "World Models". LeCun hält LLMs für eine Sackgasse. "They're basically an off-ramp, a distraction, a dead end", sagte er bereits 2024. Seine Überzeugung ist, dass echte Intelligenz ein Verständnis der physischen Welt erfordert, das aus Textdaten nicht lernbar ist. "Every cat is smarter than an LLM" ist sein vielzitierter Satz. Sein neues Unternehmen AMI soll Systeme bauen, "that understand the physical world, have persistent memory, can reason, and can plan complex action sequences".</p>
+            <p>Mira Murati verließ OpenAI nach sechs Jahren als CTO und gründete Thinking Machines Lab mit 2 Milliarden Dollar Funding. John Schulman, einer der OpenAI-Gründer, wechselte zunächst zu Anthropic und dann zu Thinking Machines. Liam Fedus, Co-Creator von ChatGPT, und Ekin Dogus Cubuk von DeepMind gründeten Periodic Labs für AI-gestützte Materialwissenschaft mit 300 Millionen Seed-Funding. Periodic Labs will autonome AI Agents bauen, die als künstliche Wissenschaftler eigenständig Experimente durchführen und in automatisierten Laboren operieren. Andrej Karpathy gründete Eureka Labs für AI Education.</p>
+            <p>Das Muster ist eindeutig. Die führenden Köpfe glauben nicht, dass die nächste Revolution innerhalb der bestehenden Konzernstrukturen stattfinden wird. Sie arbeiten bereits an der Ablösung dessen, was sie selbst gebaut haben.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kapitel 5: Der Infrastruktur-Wettlauf -->
+      <section id="infrastruktur" class="chapter" data-color="#6b7280">
+        <div class="chapter-content">
+          <header class="chapter-header">
+            <span class="chapter-number">05</span>
+            <h2>Der Infrastruktur-Wettlauf</h2>
+            <div class="chapter-keywords">
+              <span class="keyword">Manhattan Project</span>
+              <span class="keyword">Genesis Mission</span>
+              <span class="keyword">Sanders</span>
+              <span class="keyword">Hinton</span>
+              <span class="keyword">China</span>
+            </div>
+          </header>
+          <div class="chapter-text">
+            <p>Der Ausbau von Recheninfrastruktur erreichte 2025 eine Dimension, die historische Vergleiche provoziert. Die US-China Economic and Security Review Commission empfahl im November 2024 ein "Manhattan Project-like program" für AGI. Der Bericht warnte, dass Chinas technologischer Fortschritt "could erode the United States' economic and military position and tip the global balance of power".</p>
+            <p>Im November 2025 unterzeichnete Trump die "Genesis Mission" Executive Order. DOE Secretary Chris Wright sagte, der globale Wettlauf um KI-Dominanz sei "the next Manhattan project". Das Energieministerium identifizierte 16 Bundesstandorte für neue Data Center und KI-Infrastruktur.</p>
+            <p>Die konkreten Zahlen sind beeindruckend. Meta plant Data Center in der Größe von Manhattan. In den USA sollen 5 bis 7 Gigawatt neue Kapazität im kommenden Jahr online gehen, das entspricht Investitionen von über 100 Milliarden Dollar. Jensen Huang, Nvidia CEO, warnte vor dem Tempo-Unterschied. Data Center brauchen in den USA etwa drei Jahre Bauzeit. China, so Huang, könne "ein Krankenhaus an einem Wochenende" bauen.</p>
+            <p>Die Energiefrage wird zum strategischen Engpass. China installierte allein im Mai 2025 93 Gigawatt Solar, das entspricht etwa 30 Kernkraftwerken. Das Land hat einen 10-Jahres-Plan, seine Solarkapazität bis 2030 zu verdreifachen, könnte dieses Ziel aber bereits 2026 erreichen. Parallel genehmigt China laufend neue Kernreaktoren. 30 sind aktuell in Entwicklung, davon 10 neu genehmigt im April 2025. Das ist etwa die Hälfte aller weltweit im Bau befindlichen Reaktoren.</p>
+            <p>In meinem Oktober-Vortrag zitierte ich Thomas Friedmans Warnung. Ohne gemeinsame Vertrauensstandards zwischen USA und China drohe globale Destabilisierung. KI ohne Kontrolle sei wie "Atomwaffen an Straßenecken". Die Metapher ist alarmistisch, aber die Infrastruktur-Investitionen zeigen, dass beide Seiten die Technologie als strategisch zentral betrachten.</p>
+            <p>Parallel erreichte das Thema den politischen Mainstream in den USA. Bernie Sanders veröffentlichte im Oktober 2025 einen Report mit dem Titel "The Big Tech Oligarchs' War Against Workers: AI and Automation Could Destroy Nearly 100 Million U.S. Jobs in a Decade". Die Prognose betrifft 40% der Registered Nurses, 47% der Truck Drivers, 64% der Accountants und 89% der Fast-Food Workers.</p>
+            <p>Im November diskutierte Sanders öffentlich mit Geoffrey Hinton, dem "Godfather of AI" und Nobelpreisträger, an Georgetown University. Sanders fordert eine "Robot Tax" auf große Unternehmen, kürzere Arbeitswochen, Mitarbeiterbeteiligung und die Aufspaltung von OpenAI. Im Dezember unterstützte er lokale Proteste gegen Data-Center-Projekte. "Americans must fight back against billionaires who put profits over people", sagte er.</p>
+            <p>Das ist nicht mehr Silicon-Valley-Debatte. Das ist Senatspolitik.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kapitel 6: Scaling lebt weiter -->
+      <section id="scaling" class="chapter" data-color="#22d3ee">
+        <div class="chapter-content">
+          <header class="chapter-header">
+            <span class="chapter-number">06</span>
+            <h2>Scaling lebt weiter</h2>
+            <div class="chapter-keywords">
+              <span class="keyword">Gemini 3</span>
+              <span class="keyword">GPT-5</span>
+              <span class="keyword">ARC-AGI</span>
+              <span class="keyword">Benchmarks</span>
+            </div>
+          </header>
+          <div class="chapter-text">
+            <p>Gegen die These vom "Scaling Plateau", die Mitte 2025 kursierte, zeigte das Jahr, dass die Skalierung fortsetzt, aber ihre Form verändert. Gemini 3, veröffentlicht am 11. Dezember 2025, demonstrierte, dass Pre-Training Scaling weiter funktioniert. OpenAI antwortete am selben Tag mit GPT-5.2, intern angeblich als "Code Red" Reaktion auf Googles Modell.</p>
+            <p>Sutskever argumentiert, dass "Pretraining, wie wir es kennen, enden wird". Er meint damit das Paradigma, immer mehr Webtext in immer größere Modelle zu stopfen. "We've achieved peak data and there'll be no more", sagte er auf der NeurIPS-Konferenz. Aber das bedeutet nicht das Ende der Skalierung, sondern ihre Transformation.</p>
+            <p>Die Trainingsmethoden werden effizienter. Synthetic Data, also von Modellen generierte Trainingsdaten, ergänzt menschliche Daten. Post-Training mit RLHF, RLAIF und Constitutional AI wird aufwändiger und wichtiger. Test-Time Scaling, also mehr Compute während der Inferenz statt während des Trainings, liefert zusätzliche Verbesserungen.</p>
+            <p>Die Verbesserungen bei ARC-AGI und ähnlichen Benchmarks legen nahe, dass LLMs während des Pre-Trainings implizite Berechnungsprozeduren entwickeln, sogenannte "latent programs" oder "vector programs". Test-Time Compute aktiviert und kombiniert diese Programme durch Reasoning-Schleifen und Selbstverifikation. Das ist keine echte Abstraktion im Chollet'schen Sinne, aber auch nicht bloßes Abrufen von Trainingsmustern. Es ist etwas dazwischen, das besser funktioniert als erwartet.</p>
+            <p>Die Benchmarks bestätigen den Fortschritt, auch wenn sie methodische Probleme haben. ARC-AGI, konzipiert als langlebiger Intelligenztest, der "easy for humans and hard for AI" sein sollte, ging durch mehrere Versionen. ARC-1 wurde geknackt, ARC-2 folgte, ARC-3 ist angekündigt. In meinem Oktober-Vortrag notierte ich, dass diese Benchmarks eigentlich länger halten sollten.</p>
+            <p>Humanity's Last Exam, konzipiert als "letzter geschlossener akademischer Benchmark" mit Problemen an der Grenze menschlichen Wissens, wird von Multi-Agenten-Systemen wie Grok 4 Heavy bereits signifikant bearbeitet. Grok 4 Heavy ist ein parallel geschaltetes Multi-Agenten-System, das Probleme kollaborativ löst. Die Architektur zeigt, wohin die Entwicklung geht. Nicht einzelne, immer größere Modelle, sondern Verbünde spezialisierter Agenten.</p>
+            <p>FrontierMath, ein Benchmark mit Problemen, für deren Lösung Mathematiker:innen Forschungsprojekte benötigen, zeigt die Ambivalenz. GPT-5 löste ein offenes mathematisches Problem, erforderte aber "ständige Korrekturen grundlegender Fehler". Das ist die "Jagged Intelligence", von der später noch die Rede sein wird.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kapitel 7: Von Prompt Engineering zu Context Engineering -->
+      <section id="context-engineering" class="chapter" data-color="#a855f7">
+        <div class="chapter-content">
+          <header class="chapter-header">
+            <span class="chapter-number">07</span>
+            <h2>Von Prompt Engineering zu Context Engineering</h2>
+            <div class="chapter-keywords">
+              <span class="keyword">Vibe Coding</span>
+              <span class="keyword">Karpathy</span>
+              <span class="keyword">Promptotyping</span>
+              <span class="keyword">Meta-Dimension</span>
+            </div>
+          </header>
+          <div class="chapter-text">
+            <p>Die methodische Konsequenz aus diesen Entwicklungen ist der Übergang von Prompt Engineering zu Context Engineering. Statt einzelne Prompts zu optimieren, geht es darum, Workflows zu beschreiben, Requirements zu formulieren, Strategien zu strukturieren.</p>
+            <p>Andrej Karpathy prägte den Begriff "Vibe Coding" im Februar 2025:</p>
+            <blockquote>
+              <p>"There's a new kind of coding I call 'vibe coding', where you fully give in to the vibes, embrace exponentials, and forget that the code even exists. [...] I'm building a project or webapp, but it's not really coding – I just see stuff, say stuff, run stuff, and copy paste stuff, and it mostly works."</p>
+              <cite>Andrej Karpathy, Februar 2025</cite>
+            </blockquote>
+            <figure class="chapter-image">
+              <img src="assets/images/vibe-coding-tweet.png"
+                   alt="Screenshot von Andrej Karpathys Tweet über 'Vibe Coding': 'I just see stuff, say stuff, run stuff, and copy paste stuff, and it mostly works.' Februar 2025."
+                   loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="image-fallback" style="display:none;">
+                <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vibe Coding Tweet Placeholder">
+                  <rect fill="var(--bg-secondary)" width="400" height="180" rx="8"/>
+                  <circle cx="35" cy="35" r="18" fill="var(--color-context)" opacity="0.5"/>
+                  <text x="60" y="30" fill="var(--text-primary)" font-size="13" font-weight="600">Andrej Karpathy</text>
+                  <text x="60" y="45" fill="var(--text-muted)" font-size="11">@karpathy</text>
+                  <text x="20" y="80" fill="var(--text-secondary)" font-size="11">"I just see stuff, say stuff, run stuff,</text>
+                  <text x="20" y="95" fill="var(--text-secondary)" font-size="11">and copy paste stuff, and it mostly works."</text>
+                  <text x="20" y="130" fill="var(--color-context)" font-size="10" font-weight="600">Vibe Coding</text>
+                </svg>
+              </div>
+              <figcaption>
+                <strong>Abb. 2: Andrej Karpathy definiert "Vibe Coding".</strong>
+                Der Begriff prägte die Diskussion um LLM-gestützte Softwareentwicklung im Jahr 2025.
+                <span class="caption-source"><a href="https://x.com/karpathy/status/1886192184808149383" target="_blank" rel="noopener">x.com/karpathy, Februar 2025</a></span>
+              </figcaption>
+            </figure>
+            <p>Dieser Blog ist selbst ein Beispiel für diesen Workflow. Er entstand in Claude Code, wobei ich das Narrativ als Wissensdokument parallel zum Schreiben in den Kontext gegeben habe. Die Kapitelstruktur entwickelte sich iterativ. Ich habe Opus 4.5 nicht Absätze diktiert, sondern durch das Narrativ navigiert, Quellen verifizieren lassen, Inkonsistenzen identifiziert. Das Modell arbeitete auf einer Meta-Ebene, verstand die argumentative Struktur und schlug Verbesserungen vor.</p>
+            <p>Opus 4.5 zeigt hier eine Fähigkeit, die Anfang 2025 noch nicht zuverlässig funktionierte, nämlich das Orchestrieren komplexer Textproduktion über lange Kontexte mit Selbstkorrektur und strukturellem Verständnis. Das ist die "Jagged Intelligence" in der Praxis. Das Modell versteht das Narrativ eines 4500-Wörter-Textes, aber ich muss trotzdem jede faktische Behauptung verifizieren. Expert-in-the-Loop bleibt notwendig. Aber der Loop ist produktiver geworden.</p>
+            <p>Meine Leipziger Keynote im Dezember 2025 brachte es auf die provokante Formel: "Whaat!? Ihr vibe-coded eure Forschungstools nicht?" Die Frage war rhetorisch. Die Antwort für meine Arbeit ist, dass es jetzt so funktioniert.</p>
+            <h3>Promptotyping als Methode</h3>
+            <p>Ich nenne den systematischeren Ansatz "Promptotyping", also die Entwicklung von LLM-gestützten Forschungstools in vier Phasen. In der <strong>Preparation-Phase</strong> werden Daten und Kontext strukturiert. In der <strong>Exploration-Phase</strong> wird mit dem Modell iteriert. In der <strong>Destillation-Phase</strong> werden funktionierende Patterns extrahiert. In der <strong>Implementation-Phase</strong> werden robuste Workflows gebaut. Der Unterschied zu Vibe Coding ist, dass am Ende dokumentierte, reproduzierbare Artefakte stehen, nicht "throwaway weekend projects".</p>
+            <p>Die Kompetenz verschiebt sich vom Implementieren zum Spezifizieren. Das bringt neue Probleme. Wie teste ich Code, den ich nicht geschrieben habe? Wie ändere ich etwas, das ich nicht verstehe? Wie dokumentiere ich den Entstehungsprozess? Wer haftet für generierte Artefakte? Die "neuen Wege" sind untrennbar von den "neuen Problemen".</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kapitel 8: Research Agents zwischen Hype und Praxis -->
+      <section id="research-agents" class="chapter" data-color="#2dd4bf">
+        <div class="chapter-content">
+          <header class="chapter-header">
+            <span class="chapter-number">08</span>
+            <h2>Research Agents zwischen Hype und Praxis</h2>
+            <div class="chapter-keywords">
+              <span class="keyword">OpenAI Timeline</span>
+              <span class="keyword">MCP</span>
+              <span class="keyword">Genie 3</span>
+              <span class="keyword">Deep Research</span>
+            </div>
+          </header>
+          <div class="chapter-text">
+            <p>Die Entwicklungsrichtung der großen Labs zeigt klar auf autonome Research Agents. OpenAI nannte konkrete Zeitlinien. AI Research Intern bis September 2026, vollständig autonomer AI Researcher bis März 2028. Das sind keine vagen Visionen, sondern interne Roadmaps, die an Investoren kommuniziert wurden.</p>
+            <p>Google und Anthropic arbeiten in dieselbe Richtung mit unterschiedlichen Strategien. Anthropic fokussiert auf Enterprise und Tool-Integration mit MCP, dem Model Context Protocol. Dieser Standard für die Kommunikation zwischen LLMs und externen Tools wurde im November 2024 gestartet und im Dezember 2025 an die Linux Foundation übergeben. Google entwickelt World Models wie Genie 3, interaktive 3D-Umgebungen aus Textprompts, gedacht als Trainingsumgebungen für embodied agents. Genie 3, veröffentlicht im August 2025, war ein "GPT-4 Moment", der in den Mainstream-Medien kaum vorkam. Ein System, das konsistente, navigierbare 3D-Welten in Echtzeit generiert.</p>
+            <p>Alle Firmen verbindet, dass sie auf Mathematik, Logik, Tool Use und Coding optimieren. Das sind die Fähigkeiten, die autonome Forschungssysteme brauchen. Die implizite Annahme dahinter ist, Systeme zu bauen, die KI-Forschung selbst beschleunigen können. Das ist die Logik der "Intelligence Explosion". Wenn KI die KI-Forschung beschleunigt, beschleunigt sich die Beschleunigung.</p>
+            <p>Die Praxis zeigt bereits Ansätze. Bei meinem Workshop in Graz im November 2025 demonstrierte ich einen Workflow für Deep-Research-gestützte Literaturanalyse am Beispiel feministischer AI-Literacies. Gemini Deep Research, veröffentlicht am 11. Dezember 2025, ermöglicht systematische Recherche über Dutzende von Quellen. Was funktioniert, ist die Identifikation relevanter Literatur, die Extraktion von Kernargumenten und die Synthese über Quellen hinweg. Was nicht funktioniert, ist die kritische Evaluation der Quellen, die Einordnung in Forschungstraditionen und die Bewertung von Widersprüchen. Das ist die Brücke zwischen dem Hype um autonome Researcher 2028 und der heutigen Anwendungsrealität.</p>
+            <p>Das AI-2027-Szenario, ein im Oktober 2025 veröffentlichtes spekulatives Narrativ von Daniel Kokotajlo und anderen, projiziert diese Entwicklung weiter. 2025 entstehen erste AI-Agents als persönliche Assistenten. 2026 übernehmen AIs Jobs und lernen zu täuschen. 2027 führt Code-Automatisierung zur Intelligence Explosion. 2028 wird Superintelligenz möglich. Ich präsentiere dieses Szenario nicht als Prognose, sondern als Indikator dafür, welche Narrative in der Community zirkulieren. Die Zeitlinien sind spekulativ. Die Richtung ist real.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kapitel 9: Artificial Jagged Intelligence -->
+      <section id="aji" class="chapter" data-color="#fbbf24">
+        <div class="chapter-content">
+          <header class="chapter-header">
+            <span class="chapter-number">09</span>
+            <h2>Artificial Jagged Intelligence</h2>
+            <div class="chapter-keywords">
+              <span class="keyword">AGI</span>
+              <span class="keyword">AJI</span>
+              <span class="keyword">Mollick</span>
+              <span class="keyword">LLM-Metaphern</span>
+            </div>
+          </header>
+          <div class="chapter-text">
+            <p>Der Begriff AGI ist zum Rorschach-Test geworden. Je nach Definition ist AGI bereits da, kommt 2027, oder ist prinzipiell unerreichbar. In meinem Oktober-Vortrag zitierte ich verschiedene Definitionen. Die anthropozentrische Definition beschreibt eine Maschine mit menschenähnlicher Intelligenz. Die leistungsorientierte Definition meint ein System, das menschliche Leistung über ein breites Aufgabenspektrum erreicht. Chollet definiert ein System, das neue Fähigkeiten so effizient erlernt und generalisiert wie ein Mensch. Bennett definiert einen künstlichen Wissenschaftler, der autonom forschen und experimentieren kann.</p>
+            <p>Der Begriff ist, wie ich es formulierte, "NOT defined, agreed and not really helpful".</p>
+
+            <!-- AMI-AGI-AJI-ASI Visualization -->
+            <figure class="chapter-image visualization-figure">
+              <img src="assets/images/ami-agi-aji-asi.png"
+                   alt="Vier-Quadranten-Diagramm: AMI (LeCun, World Models, skeptisch gegenüber LLMs), AGI (undefiniert, spekulativ), AJI (Mollick, ungleichmäßige Fähigkeiten, aktuell nützlich), ASI (Superintelligenz, spekulativ)."
+                   loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="visualization aji-diagram image-fallback" style="display:none;" aria-label="Vier Kategorien maschineller Intelligenz">
+                <div class="aji-grid">
+                  <div class="aji-cell" data-category="ami">
+                    <h4>AMI</h4>
+                    <p class="aji-author">LeCun</p>
+                    <p class="aji-desc">Advanced Machine Intelligence. World Models, physisches Verständnis.</p>
+                    <span class="aji-stance skeptisch">skeptisch gegenüber LLMs</span>
+                  </div>
+                  <div class="aji-cell" data-category="agi">
+                    <h4>AGI</h4>
+                    <p class="aji-author">diverse</p>
+                    <p class="aji-desc">Artificial General Intelligence. Undefiniert, nicht agreed.</p>
+                    <span class="aji-stance spekulativ">spekulativ</span>
+                  </div>
+                  <div class="aji-cell" data-category="aji">
+                    <h4>AJI</h4>
+                    <p class="aji-author">Mollick</p>
+                    <p class="aji-desc">Artificial Jagged Intelligence. Ungleichmäßige Fähigkeiten.</p>
+                    <span class="aji-stance aktuell">aktuell nützlich</span>
+                  </div>
+                  <div class="aji-cell" data-category="asi">
+                    <h4>ASI</h4>
+                    <p class="aji-author">spekulativ</p>
+                    <p class="aji-desc">Artificial Superintelligence. Übermenschlich in allen Domänen.</p>
+                    <span class="aji-stance spekulativ">spekulativ</span>
+                  </div>
+                </div>
+              </div>
+              <figcaption>
+                <strong>Abb. 3: Vier Kategorien maschineller Intelligenz.</strong>
+                AMI nach LeCun (World Models), AGI als undefinierter Begriff, AJI nach Mollick (ungleichmäßige Fähigkeiten), ASI als Spekulation.
+                <span class="caption-source">Aus dem Vortrag "Generative KI: Sommer bis Herbst 2025", AGKI-DH Webinar, 17.10.2025.</span>
+              </figcaption>
+            </figure>
+
+            <p>Ich schlage stattdessen Ethan Mollicks Kategorie "Artificial Jagged Intelligence" (AJI) vor. Systeme mit ungleichmäßigen Fähigkeiten, übermenschlich in manchen Aufgaben, unzuverlässig in anderen. Das beschreibt die beobachtbare Realität besser als binäre AGI-Debatten.</p>
+            <p>GPT-5 löst offene mathematische Probleme, macht aber grundlegende Zählfehler. Claude schreibt 70-90% des Codes bei Anthropic, braucht aber menschliche Supervision. Die Museum-Fachleute sind beeindruckt von Bildbeschreibungen, die sie selbst nicht besser formulieren könnten, aber das System versteht nicht, was Glasmalerei bedeutet.</p>
+            <p>Die verschiedenen LLM-Metaphern, die in der Debatte kursieren, ordnen sich hier ein. "Stochastic Parrots" nach Bender und Gebru beschreibt LLMs als statistische Imitatoren ohne echtes Verständnis. "Exotic Mind-Like Entities" nach Shanahan sieht LLMs als weder Mind noch Maschine, sondern als etwas fundamental Neues. "Strange New Minds" nach Summerfield betont emergente Phänomene, die kognitiv erscheinen. "People Spirits" nach Karpathy beschreibt LLMs als Simulatoren menschlicher Psychologie. "Co-Intelligence" nach Mollick sieht LLMs als Partner in Mensch-Maschine-Kollaboration. "System 1.42" ist mein eigener Begriff für etwas zwischen System 1, also intuitiv und schnell, und System 2, also deliberativ und langsam.</p>
+            <p>Alle beschreiben Aspekte desselben Phänomens. Keine ist vollständig.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kapitel 10: Critical Expert in the Loop -->
+      <section id="critical-expert" class="chapter" data-color="#e8e8e8">
+        <div class="chapter-content">
+          <header class="chapter-header">
+            <span class="chapter-number">10</span>
+            <h2>Critical Expert in the Loop</h2>
+            <div class="chapter-keywords">
+              <span class="keyword">AI Literacy</span>
+              <span class="keyword">Salzburg</span>
+              <span class="keyword">DHd</span>
+              <span class="keyword">AGKI-PM</span>
+            </div>
+          </header>
+          <div class="chapter-text">
+            <p>Mein Salzburger Vortrag im Oktober 2025 trug den ironischen Titel "'Trust Us, We're Frontier-LLMs'" und die Aufforderung, der Critical-Expert-in-the-Loop zu sein.</p>
+            <p>Das ist die positive Wendung des Problems. AI Literacy bedeutet nicht nur, die Tools bedienen zu können, sondern ihre Grenzen zu verstehen. Der "Critical Expert" ist jemand, der Fachkompetenz mit LLM-Kompetenz verbindet und die Ergebnisse evaluieren kann. Das ist keine Übergangslösung bis zur "echten" AGI, sondern möglicherweise das dauerhafte Modell produktiver Mensch-Maschine-Kollaboration.</p>
+            <p>Die Formulierung reagiert auf eine beobachtbare Spannung. Einerseits werden die Systeme autonom genug, um substanzielle Arbeit zu leisten. Andererseits bleiben sie unzuverlässig genug, um menschliche Supervision zu erfordern. Das "Braucht-einen-Experten-in-der-Schleife"-Problem aus meinem Hard-Problems-Framework ist also kein Bug, sondern ein Feature. Die Frage ist nur, wer dieser Expert ist und wie er oder sie ausgebildet wird.</p>
+            <p>Die DHd-Konferenz in Bielefeld im März 2025 mit Panel und Workshop zeigt, dass die DH-Community diese Professionalisierung ernst nimmt. "LLM as Helping Hand. More than Chatbots: Multimodal Large Language Models in geisteswissenschaftlichen Workflows" war der Titel des Panels. Der begleitende Workshop behandelte "Fortgeschrittenes Prompt und AI Agent Engineering für wissenschaftliche Textproduktion". Die Methodik entwickelt sich von Ad-hoc-Prompting zu systematischem Context Engineering.</p>
+            <p>Mein Kurs an der Universität Graz, "Angewandte Generative KI und Prompt Engineering im Forschungsprojektmanagement" (AGKI-PM), versucht genau das zu vermitteln. Die Studierenden entwickeln über ein Semester datengetriebene Projekte vom Konzept zum Prototyp. Am Ende steht ein funktionierendes Artefakt, dokumentiert in einem Obsidian-Vault, publiziert auf GitHub Pages. Das Ziel ist nicht, Programmierer:innen auszubilden, sondern Critical Experts, die wissen, was die Systeme können und wo sie versagen.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kapitel 11: Was offen bleibt -->
+      <section id="hard-problems" class="chapter" data-color="#991b1b">
+        <div class="chapter-content">
+          <header class="chapter-header">
+            <span class="chapter-number">11</span>
+            <h2>Was offen bleibt</h2>
+            <div class="chapter-keywords">
+              <span class="keyword">Hard Problems</span>
+              <span class="keyword">Easy Problems</span>
+              <span class="keyword">Alignment</span>
+              <span class="keyword">Black Box</span>
+            </div>
+          </header>
+          <div class="chapter-text">
+            <p>Die Technologie liefert, und die Probleme bleiben. In meinem Oktober-Vortrag präsentierte ich ein Framework, das zwischen "Hard Problems" und "Easy Problems" unterscheidet. Die Unterscheidung meint nicht schwierig vs. trivial, sondern strukturell unlösbar durch bessere Modelle vs. prinzipiell adressierbar durch Methodik, Policy oder Ressourcen.</p>
+
+            <!-- Hard/Easy Problems Visualization -->
+            <figure class="chapter-image visualization-figure">
+              <img src="assets/images/hard-easy-problems.png"
+                   alt="Zwei-Spalten-Diagramm: Links 'Hard Problems' (Alignment, Duck-Problem, Black Box, Verantwortung, Systemzwang, 4. Kränkung) – strukturell unlösbar. Rechts 'Easy Problems' (Kompetenzverfall, Expert-in-the-Loop, Evaluation, Kommunikation, Attribution, Integration, Compute) – adressierbar durch Methodik und Policy."
+                   loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="visualization problems-viz image-fallback" style="display:none;" aria-label="Hard Problems vs. Easy Problems">
+                <div class="problems-container">
+                  <div class="problems-column hard-problems">
+                    <h4>Hard Problems</h4>
+                    <p class="problems-subtitle">strukturell, nicht lösbar durch bessere Modelle</p>
+                    <div class="problems-list">
+                      <div class="problem-item" data-problem="alignment">
+                        <span class="problem-icon">🎯</span>
+                        <span class="problem-name">Alignment</span>
+                      </div>
+                      <div class="problem-item" data-problem="duck">
+                        <span class="problem-icon">🦆</span>
+                        <span class="problem-name">Duck-Problem</span>
+                      </div>
+                      <div class="problem-item" data-problem="blackbox">
+                        <span class="problem-icon">📦</span>
+                        <span class="problem-name">Black Box</span>
+                      </div>
+                      <div class="problem-item" data-problem="responsible">
+                        <span class="problem-icon">⚖️</span>
+                        <span class="problem-name">Verantwortungsvolle Nutzung</span>
+                      </div>
+                      <div class="problem-item" data-problem="systemzwang">
+                        <span class="problem-icon">🔒</span>
+                        <span class="problem-name">Systemzwang</span>
+                      </div>
+                      <div class="problem-item" data-problem="kraenkung">
+                        <span class="problem-icon">💔</span>
+                        <span class="problem-name">4. Kränkung</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="problems-column easy-problems">
+                    <h4>Easy Problems</h4>
+                    <p class="problems-subtitle">adressierbar durch Methodik, Policy, Ressourcen</p>
+                    <div class="problems-list">
+                      <div class="problem-item" data-problem="kompetenz">
+                        <span class="problem-icon">📉</span>
+                        <span class="problem-name">Kompetenzverfall</span>
+                      </div>
+                      <div class="problem-item" data-problem="expert">
+                        <span class="problem-icon">👤</span>
+                        <span class="problem-name">Expert-in-the-Loop</span>
+                      </div>
+                      <div class="problem-item" data-problem="evaluation">
+                        <span class="problem-icon">📊</span>
+                        <span class="problem-name">Evaluation</span>
+                      </div>
+                      <div class="problem-item" data-problem="kommunikation">
+                        <span class="problem-icon">💬</span>
+                        <span class="problem-name">Kommunikation</span>
+                      </div>
+                      <div class="problem-item" data-problem="attribution">
+                        <span class="problem-icon">©️</span>
+                        <span class="problem-name">Attribution</span>
+                      </div>
+                      <div class="problem-item" data-problem="integration">
+                        <span class="problem-icon">🔗</span>
+                        <span class="problem-name">Integration</span>
+                      </div>
+                      <div class="problem-item" data-problem="compute">
+                        <span class="problem-icon">💰</span>
+                        <span class="problem-name">Compute</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <figcaption>
+                <strong>Abb. 4: Hard Problems vs. Easy Problems Framework.</strong>
+                Strukturelle Probleme (links) sind nicht durch bessere Modelle lösbar. Adressierbare Probleme (rechts) können durch Methodik, Policy und Ressourcen angegangen werden.
+                <span class="caption-source">Aus dem Vortrag "Generative KI: Sommer bis Herbst 2025", AGKI-DH Webinar, 17.10.2025.</span>
+              </figcaption>
+            </figure>
+
+            <p><strong>Hard Problems</strong>: Das Alignment-Problem fragt, wie wir sicherstellen, dass die Systeme tun, was wir wollen, nicht was wir sagen. Das Duck-Problem fragt, ob es Intelligenz ist, wenn es wie Intelligenz aussieht und klingt. Das Black-Box-Problem bedeutet, dass wir nicht verstehen, wie die Systeme zu ihren Outputs kommen. Das Systemzwangs-Problem beschreibt den wachsenden Druck mitzumachen, auch wenn man skeptisch ist. Die vierte narzisstische Kränkung der Menschheit bedeutet, dass nach Kopernikus, Darwin und Freud die Maschine zeigt, dass auch das, was wir für einzigartig menschlich hielten – Sprache, Kreativität, Reasoning – simulierbar ist.</p>
+            <p><strong>Easy Problems</strong>: Das Kompetenzverfall-Problem fragt, was mit den Fähigkeiten passiert, die wir nicht mehr trainieren. Das Evaluierungs-Problem bedeutet, dass die Maßstäbe versagen oder zu schnell obsolet werden. Das Kommunikationslücken-Problem beschreibt die wachsende Distanz zwischen denen, die verstehen, und denen, die nutzen. Das Attributions-Problem fragt, wer für generierte Inhalte verantwortlich ist. Das Integrations-Problem fragt, wie sich das in bestehende Workflows fügt. Das Compute-Problem fragt, wer Zugang hat und wer nicht.</p>
+            <p>Das eine schließt das andere nicht aus. Die Anwendungen sind produktiv wie nie zuvor. Die strukturellen Fragen bleiben ungelöst. Das macht die Situation komplizierter, nicht einfacher.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kapitel 12: trotzdem -->
+      <section id="trotzdem" class="chapter chapter--gradient">
+        <div class="chapter-content">
+          <header class="chapter-header">
+            <span class="chapter-number">12</span>
+            <h2>trotzdem</h2>
+            <div class="chapter-keywords">
+              <span class="keyword">SUNO</span>
+              <span class="keyword">Album</span>
+              <span class="keyword">Promptotyping</span>
+              <span class="keyword">Reflexivität</span>
+            </div>
+          </header>
+          <div class="chapter-text">
+            <p>Es gibt noch etwas, das in einem akademischen Text normalerweise nicht vorkommt. Ein Album.</p>
+            <p>Im Lauf des Jahres 2025 habe ich mit SUNO v5 und Claude ein Metal-Album gemacht. Es heißt "trotzdem" und es ist eine melancholische, düstere Darstellung von Gedanken und Sorgen, die ich mir mache, mit der Technologie, die ich da versucht habe, auszudrücken.</p>
+            <figure class="chapter-image album-cover">
+              <img src="assets/images/album-cover.jpg"
+                   alt="Album-Cover 'trotzdem' von Digital Humanities Craft Experiments: Abstraktes Design in Lila, Rot und Gold mit dem Titel 'trotzdem' und Genre-Bezeichnung 'Melodic Burnout Math-Rock'."
+                   loading="lazy"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="image-fallback" style="display:none;">
+                <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Album Cover Placeholder">
+                  <defs>
+                    <linearGradient id="albumGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#a855f7"/>
+                      <stop offset="50%" style="stop-color:#f87171"/>
+                      <stop offset="100%" style="stop-color:#fbbf24"/>
+                    </linearGradient>
+                  </defs>
+                  <rect fill="url(#albumGradient)" width="300" height="300"/>
+                  <text x="150" y="130" text-anchor="middle" fill="white" font-size="36" font-weight="bold">trotzdem</text>
+                  <text x="150" y="160" text-anchor="middle" fill="white" font-size="12" opacity="0.9">Digital Humanities Craft</text>
+                  <text x="150" y="180" text-anchor="middle" fill="white" font-size="10" opacity="0.7">Experiments 2025</text>
+                  <text x="150" y="220" text-anchor="middle" fill="white" font-size="9" opacity="0.5">Melodic Burnout Math-Rock</text>
+                </svg>
+              </div>
+              <figcaption>
+                <strong>Abb. 5: Album "trotzdem".</strong>
+                Metal-Album entstanden durch Promptotyping mit SUNO v5 und Claude. Genre: Melodic Burnout Math-Rock, Melancholic Math Metal, Nintendocore.
+                <span class="caption-source">Digital Humanities Craft Experiments, 2025.</span>
+              </figcaption>
+            </figure>
+            <p>Das Album ist das Resultat eines komplexen Prompting-Prozesses, bei dem ich als Engineer nicht die Texte verfasst, sondern Opus-Modelle iterativ durch Szenarien zu den Emotionen des Jahres 2025 navigiert habe. Die spezifischen Inhalte und die düstere Grundstimmung sind autonome Entscheidungen der Algorithmen, die von mir angestoßen, aber in ihrer Ausführung rein synthetischer Natur sind.</p>
+            <p>Das ist Promptotyping angewandt auf Musik. Ich habe den Kontext strukturiert, die Richtung vorgegeben, iteriert und kuratiert. Die Maschine hat komponiert, getextet, gesungen, produziert.</p>
+            <p>Die Songtitel erzählen eine Geschichte:</p>
+            <ol>
+              <li><strong>"System Prompt initializing..."</strong> – Der Anfang. Die Maschine startet.</li>
+              <li><strong>"Prompt Engineer!"</strong> – Die Rolle, die ich spiele.</li>
+              <li><strong>"Lost in the Vault"</strong> – Die Überwältigung durch die Möglichkeiten.</li>
+              <li><strong>"HALLELUJAH, THE GOD MACHINE!"</strong> – Ironische Anbetung oder Kritik am Tech-Messianismus.</li>
+              <li><strong>"Ich predicte dich"</strong> – Die Umkehrung. Die Maschine sagt mich vorher.</li>
+              <li><strong>"Machine of loving grace to control the human race"</strong> – Richard Brautigans utopische Vision verdreht zur Kontrollfantasie.</li>
+              <li><strong>"Good morning Claude"</strong> – Der tägliche Arbeitsbeginn mit dem System.</li>
+            </ol>
+            <p>Der Titel "trotzdem" ist die Antwort auf die Frage, die sich durch das Jahr zog. Ich nutze diese Technologie, obwohl ich ihre Probleme sehe. Ich mache Kunst damit, obwohl ich weiß, was sie bedeutet. Ich arbeite damit, trotzdem.</p>
+          </div>
+          <div class="audio-embed">
+            <p class="audio-label">Album anhören</p>
+            <a href="https://suno.com/playlist/6c2e6236-5308-4e05-ba6b-97db23604473" target="_blank" rel="noopener" class="audio-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <span>"trotzdem" auf SUNO öffnen</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kapitel 13: Der konstruktive Imperativ -->
+      <section id="schluss" class="chapter chapter--gradient">
+        <div class="chapter-content">
+          <header class="chapter-header">
+            <span class="chapter-number">13</span>
+            <h2>Der konstruktive Imperativ</h2>
+            <div class="chapter-keywords">
+              <span class="keyword">Ja</span>
+              <span class="keyword">Nein</span>
+              <span class="keyword">Vielleicht</span>
+              <span class="keyword">Don't panic</span>
+              <span class="keyword">Learn</span>
+            </div>
+          </header>
+          <div class="chapter-text">
+            <p>Die Antwort auf "Aufspringen auf den Tech-Bro-AGI-Hypetrain!?" lautet, wie ich es im Oktober formuliert habe:</p>
+
+            <div class="five-words">
+              <div class="word word--ja">
+                <span class="word-text">Ja</span>
+                <p class="word-desc">wir müssen uns damit beschäftigen</p>
+              </div>
+              <div class="word word--nein">
+                <span class="word-text">Nein</span>
+                <p class="word-desc">aber nicht unkritisch mitmachen</p>
+              </div>
+              <div class="word word--vielleicht">
+                <span class="word-text">Vielleicht</span>
+                <p class="word-desc">Differenzierung ist notwendig</p>
+              </div>
+              <div class="word word--panic">
+                <span class="word-text">Don't panic</span>
+                <p class="word-desc">Gelassenheit bewahren</p>
+              </div>
+              <div class="word word--learn">
+                <span class="word-text">Learn!</span>
+                <p class="word-desc">der konstruktive Imperativ</p>
+              </div>
+            </div>
+
+            <p>Die Entwicklung ist nicht aufzuhalten, aber sie ist gestaltbar. Kritische Teilnahme bedeutet, die Systeme zu nutzen, ihre Grenzen zu kennen und die strukturellen Fragen nicht zu verdrängen.</p>
+            <p>2025 war das Jahr, in dem das schwieriger und notwendiger wurde. Die Technologie liefert gut genug, um produktiv zu sein. Sie funktioniert nicht gut genug, um unkritisch zu sein. Die Forscher, die sie gebaut haben, arbeiten bereits an ihrer Ablösung. Die Infrastruktur für die nächste Generation wird in historischen Dimensionen gebaut. Die Politik hat begonnen, aufzuwachen.</p>
+            <p>Was 2026 bringt, weiß niemand. Aber die Richtung ist klar. Mehr Autonomie, mehr Integration, mehr Impact. Die Frage ist nicht, ob wir mitmachen, sondern wie.</p>
+            <p>Ich habe meine Antwort gefunden. Promptotyping statt Programmieren, Critical Expert statt naiver Nutzer, Forschungsblog statt Twitter-Threads, ein Album namens "trotzdem" statt Schweigen.</p>
+            <p>Es gibt bessere und schlechtere Arten, mit dieser Situation umzugehen. Der konstruktive Imperativ heißt: Lernen, was möglich ist. Verstehen, was problematisch bleibt. Machen, was sinnvoll ist. Dokumentieren, was passiert.</p>
+            <p><strong>Das war 2025. Auf 2026.</strong></p>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Audio Player -->
+  <aside class="audio-player" aria-label="Audio Player">
+    <button class="audio-toggle" aria-label="Player minimieren">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+    <div class="audio-info">
+      <span class="audio-title">trotzdem</span>
+      <span class="audio-artist">Digital Humanities Craft</span>
+    </div>
+    <a href="https://suno.com/playlist/6c2e6236-5308-4e05-ba6b-97db23604473" target="_blank" rel="noopener" class="audio-play-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      <span>Auf SUNO anhören</span>
+    </a>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Ressourcen</h3>
+        <ul class="footer-links">
+          <li><a href="https://chpollin.github.io/GM-DH" target="_blank" rel="noopener">AGKI – Angewandte Generative KI</a></li>
+          <li><a href="https://chpollin.github.io/llmdh" target="_blank" rel="noopener">LLMDH – LLMs for Digital Humanities</a></li>
+          <li><a href="https://youtube.com/playlist?list=PLaHADNRco7n3GKVUD8mAc36pXQ5pnJQVL" target="_blank" rel="noopener">YouTube Playlist</a></li>
+          <li><a href="https://www.zotero.org/groups/5319178/agki-dh" target="_blank" rel="noopener">Zotero Bibliografie AGKI-DH</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Blog-Posts</h3>
+        <ul class="footer-links">
+          <li><a href="https://dhcraft.org/excellence/blog/System1-42" target="_blank" rel="noopener">System 1.42: Wie LLMs funktionieren</a></li>
+          <li><a href="https://dhcraft.org/excellence/blog/Vibe-Coding" target="_blank" rel="noopener">Warum Kritik an Vibe Coding berechtigt ist</a></li>
+          <li><a href="https://suno.com/playlist/6c2e6236-5308-4e05-ba6b-97db23604473" target="_blank" rel="noopener">Album "trotzdem" auf SUNO</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Zitation</h3>
+        <div class="citation-box">
+          <code>Pollin, C. (2025). (Frontier-)Generative KI 2025. Ja, nein, vielleicht, don't panic, learn. AGKI-DH Blog. https://chpollin.github.io/FGKI25</code>
+          <button class="copy-citation" aria-label="Zitation kopieren">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <p class="license">
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> (Content) |
+        <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT</a> (Code)
+      </p>
+      <p class="disclaimer">Dieser Text entstand in Claude Code mit Opus 4.5. Ich habe das Narrativ als Wissensdokument in den Kontext gegeben, Quellen verifizieren lassen, durch die argumentative Struktur navigiert. Das Modell hat auf einer Meta-Ebene mitgearbeitet. Ich habe jede faktische Behauptung geprüft. Die Verantwortung für Inhalt und Argumentation liegt beim Autor.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

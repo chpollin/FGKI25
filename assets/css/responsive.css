@@ -1,0 +1,338 @@
+/* ==========================================================================
+   FGKI25 - Responsive Styles
+   Mobile First Approach with Breakpoints
+   ========================================================================== */
+
+/* ==========================================================================
+   Mobile (Default - < 768px)
+   ========================================================================== */
+
+/* Header adjustments */
+@media (max-width: 767px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .chapter-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--space-md);
+    gap: var(--space-xs);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal);
+  }
+
+  .chapter-nav.open {
+    max-height: 500px;
+  }
+
+  .chapter-nav-item {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.875rem;
+  }
+
+  /* Chapters */
+  .chapter {
+    min-height: auto;
+    padding: var(--space-lg) 0;
+  }
+
+  .chapter--intro {
+    min-height: calc(100vh - var(--header-height));
+  }
+
+  /* Visualizations */
+  .aji-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .problems-container {
+    grid-template-columns: 1fr;
+  }
+
+  .five-words {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .word {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* Audio Player */
+  .audio-play-link span {
+    display: none;
+  }
+
+  .audio-play-link {
+    padding: var(--space-sm);
+    border-radius: 50%;
+  }
+
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Small Devices (Phones in landscape, small tablets)
+   ========================================================================== */
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .aji-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .five-words {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .word {
+    width: auto;
+    min-width: 120px;
+    flex: 1;
+  }
+}
+
+/* ==========================================================================
+   Tablet (768px - 1023px)
+   ========================================================================== */
+
+@media (min-width: 768px) {
+  :root {
+    --font-size-base: 19px;
+  }
+
+  /* Layout */
+  .blog-content {
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+
+  .chapter {
+    padding: var(--space-2xl) 0;
+  }
+
+  /* Header */
+  .header-content {
+    padding: var(--space-sm) var(--space-lg);
+  }
+
+  /* Chapter nav scroll hint */
+  .chapter-nav {
+    mask-image: linear-gradient(
+      to right,
+      black calc(100% - 40px),
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      black calc(100% - 40px),
+      transparent 100%
+    );
+  }
+
+  /* Visualizations */
+  .aji-cell {
+    padding: var(--space-lg);
+  }
+
+  .aji-cell h4 {
+    font-size: 1.75rem;
+  }
+
+  /* Footer */
+  .footer-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Desktop (1024px - 1439px)
+   ========================================================================== */
+
+@media (min-width: 1024px) {
+  :root {
+    --font-size-base: 20px;
+  }
+
+  /* Header */
+  .chapter-nav {
+    justify-content: center;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .chapter-nav-item {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.8125rem;
+  }
+
+  /* Chapters */
+  .chapter {
+    min-height: 100vh;
+  }
+
+  /* Images can be wider */
+  .chapter-image {
+    margin-left: calc(-1 * var(--space-lg));
+    margin-right: calc(-1 * var(--space-lg));
+  }
+
+  /* Visualizations spacing */
+  .visualization {
+    margin-left: calc(-1 * var(--space-lg));
+    margin-right: calc(-1 * var(--space-lg));
+  }
+}
+
+/* ==========================================================================
+   Large Desktop (1440px+)
+   ========================================================================== */
+
+@media (min-width: 1440px) {
+  .blog-content {
+    max-width: var(--content-width-wide);
+  }
+
+  /* Two-column layout for chapters with aside content */
+  .chapter-with-aside {
+    display: grid;
+    grid-template-columns: 1fr 720px 1fr;
+    gap: var(--space-xl);
+  }
+
+  .chapter-with-aside .chapter-content {
+    grid-column: 2;
+  }
+
+  .chapter-aside {
+    grid-column: 3;
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-lg));
+    align-self: start;
+    max-height: calc(100vh - var(--header-height) - var(--space-xl));
+    overflow-y: auto;
+  }
+
+  /* Wider visualizations */
+  .visualization {
+    margin-left: calc(-1 * var(--space-xl));
+    margin-right: calc(-1 * var(--space-xl));
+    padding: var(--space-xl);
+  }
+
+  .aji-grid {
+    gap: var(--space-lg);
+  }
+
+  .problems-container {
+    gap: var(--space-xl);
+  }
+}
+
+/* ==========================================================================
+   Ultra-wide (1920px+)
+   ========================================================================== */
+
+@media (min-width: 1920px) {
+  :root {
+    --font-size-base: 21px;
+  }
+
+  .blog-content {
+    max-width: 1400px;
+  }
+}
+
+/* ==========================================================================
+   Height-based adjustments
+   ========================================================================== */
+
+/* Short screens - reduce min-height */
+@media (max-height: 700px) {
+  .chapter {
+    min-height: auto;
+  }
+
+  .chapter--intro {
+    min-height: auto;
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-indicator {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   High Contrast Mode
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+  :root {
+    --bg-secondary: #000;
+    --bg-tertiary: #1a1a1a;
+    --border-color: #666;
+    --text-secondary: #ccc;
+    --text-muted: #999;
+  }
+
+  .chapter-nav-item.active {
+    outline: 2px solid var(--accent-learn);
+  }
+
+  .aji-cell:hover,
+  .problem-item:hover {
+    outline: 2px solid var(--accent-learn);
+  }
+}
+
+/* ==========================================================================
+   Print Overrides
+   ========================================================================== */
+
+@media print {
+  .blog-content {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .chapter {
+    min-height: auto;
+    page-break-after: always;
+  }
+
+  .visualization {
+    page-break-inside: avoid;
+  }
+}

@@ -1,0 +1,333 @@
+/* ==========================================================================
+   FGKI25 - Typography
+   Headings, Body Text, Links, Blockquotes, Code, Lists
+   ========================================================================== */
+
+/* ==========================================================================
+   Headings
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-top: var(--space-xl);
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: clamp(1.125rem, 3vw, 1.375rem);
+  color: var(--text-secondary);
+  margin-top: var(--space-lg);
+}
+
+h4 {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Body Text
+   ========================================================================== */
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.lead {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+em {
+  font-style: italic;
+}
+
+small {
+  font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+a {
+  color: var(--accent-learn);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-ja);
+}
+
+a:focus-visible {
+  color: var(--accent-ja);
+  text-decoration: underline;
+}
+
+/* External link indicator */
+a[target="_blank"]::after {
+  content: "";
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  margin-left: 0.2em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2322d3ee' stroke-width='2'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'%3E%3C/path%3E%3Cpolyline points='15 3 21 3 21 9'%3E%3C/polyline%3E%3Cline x1='10' y1='14' x2='21' y2='3'%3E%3C/line%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   Blockquotes
+   ========================================================================== */
+
+blockquote {
+  margin: var(--space-lg) 0;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--bg-secondary);
+  border-left: 4px solid var(--accent-vielleicht);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: italic;
+}
+
+blockquote p {
+  margin-bottom: var(--space-sm);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+blockquote p:last-of-type {
+  margin-bottom: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: var(--space-md);
+  font-style: normal;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+blockquote cite::before {
+  content: "— ";
+}
+
+/* ==========================================================================
+   Code
+   ========================================================================== */
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--bg-secondary);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+  color: var(--accent-vielleicht);
+}
+
+pre {
+  margin: var(--space-lg) 0;
+  padding: var(--space-md);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+ul, ol {
+  margin: var(--space-md) 0;
+  padding-left: var(--space-lg);
+}
+
+li {
+  margin-bottom: var(--space-sm);
+}
+
+li::marker {
+  color: var(--accent-learn);
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: var(--space-sm);
+  margin-bottom: 0;
+}
+
+/* Definition lists */
+dl {
+  margin: var(--space-md) 0;
+}
+
+dt {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: var(--space-md);
+}
+
+dd {
+  margin-left: var(--space-lg);
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Horizontal Rule
+   ========================================================================== */
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: var(--space-xl) 0;
+}
+
+/* ==========================================================================
+   Tables (if needed)
+   ========================================================================== */
+
+table {
+  width: 100%;
+  margin: var(--space-lg) 0;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+td {
+  color: var(--text-secondary);
+}
+
+tr:hover td {
+  background: var(--bg-secondary);
+}
+
+/* ==========================================================================
+   Chapter-Specific Typography
+   ========================================================================== */
+
+.chapter-number {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+/* Color the chapter number based on chapter */
+[data-color="#f87171"] .chapter-number { color: var(--color-januar); }
+[data-color="#3b82f6"] .chapter-number { color: var(--color-reasoning); }
+[data-color="#4ade80"] .chapter-number { color: var(--color-agents); }
+[data-color="#fb923c"] .chapter-number { color: var(--color-exodus); }
+[data-color="#6b7280"] .chapter-number { color: var(--color-infra); }
+[data-color="#22d3ee"] .chapter-number { color: var(--color-scaling); }
+[data-color="#a855f7"] .chapter-number { color: var(--color-context); }
+[data-color="#2dd4bf"] .chapter-number { color: var(--color-research); }
+[data-color="#fbbf24"] .chapter-number { color: var(--color-aji); }
+[data-color="#e8e8e8"] .chapter-number { color: var(--color-expert); }
+[data-color="#991b1b"] .chapter-number { color: var(--color-problems); }
+
+/* Keywords */
+.chapter-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.keyword {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+}
+
+/* Site Title & Subtitle */
+.site-title {
+  margin-bottom: var(--space-sm);
+}
+
+.site-subtitle {
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  font-weight: 400;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: var(--space-lg);
+}
+
+/* Author Info */
+.author-info {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-color);
+}
+
+.author-name {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: var(--space-xs);
+}
+
+.author-org {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: var(--space-xs);
+}
+
+.author-info time {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
