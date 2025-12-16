@@ -13,7 +13,26 @@ const state = {
   theme: 'dark',
   audioPlayerVisible: false,
   audioPlayerMinimized: false,
-  mobileMenuOpen: false
+  mobileMenuOpen: false,
+  chapterSelectorOpen: false
+};
+
+// Chapter ID to filename mapping (v1.2 - Breadcrumb Navigation)
+const chapterFiles = {
+  'intro': '00-intro.md',
+  'januar-schock': '01-januar.md',
+  'reasoning-monopoly': '02-reasoning.md',
+  'agentische-systeme': '03-agents.md',
+  'forscher-exodus': '04-exodus.md',
+  'infrastruktur': '05-infra.md',
+  'scaling': '06-scaling.md',
+  'context-engineering': '07-context.md',
+  'research-agents': '08-research.md',
+  'aji': '09-aji.md',
+  'critical-expert': '10-expert.md',
+  'hard-problems': '11-problems.md',
+  'trotzdem': '12-trotzdem.md',
+  'schluss': '13-schluss.md'
 };
 
 // ==========================================================================
@@ -24,7 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initScrollTracking();
   initChapterNavigation();
-  initMobileMenu();
+  initChapterSelector();  // v1.2
+  initBreadcrumbNav();    // v1.2
   initAudioPlayer();
   initCopyButtons();
   initSmoothScroll();
@@ -138,8 +158,11 @@ function updateCurrentChapter(chapterId) {
 
   state.currentChapter = chapterId;
 
-  // Update navigation active state
-  document.querySelectorAll('.chapter-nav-item').forEach(item => {
+  // v1.2: Update breadcrumb path
+  updateBreadcrumbPath(chapterId);
+
+  // Update chapter selector active state
+  document.querySelectorAll('.chapter-selector-item').forEach(item => {
     const isActive = item.getAttribute('data-chapter') === chapterId;
     item.classList.toggle('active', isActive);
     item.setAttribute('aria-current', isActive ? 'true' : 'false');
@@ -151,11 +174,13 @@ function updateCurrentChapter(chapterId) {
   } else {
     history.replaceState(null, '', window.location.pathname);
   }
+}
 
-  // Scroll active nav item into view
-  const activeNavItem = document.querySelector(`.chapter-nav-item[data-chapter="${chapterId}"]`);
-  if (activeNavItem) {
-    activeNavItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+// v1.2: Update breadcrumb path display
+function updateBreadcrumbPath(chapterId) {
+  const pathEl = document.getElementById('current-path');
+  if (pathEl && chapterFiles[chapterId]) {
+    pathEl.textContent = chapterFiles[chapterId];
   }
 }
 
@@ -185,49 +210,95 @@ function initChapterNavigation() {
 }
 
 // ==========================================================================
-// Mobile Menu
+// Chapter Selector (v1.2 - Dropdown Menu)
 // ==========================================================================
 
-function initMobileMenu() {
+function initChapterSelector() {
   const menuToggle = document.querySelector('.menu-toggle');
-  const chapterNav = document.querySelector('.chapter-nav');
+  const chapterSelector = document.getElementById('chapter-selector');
+  const navFileBtn = document.getElementById('nav-file-btn');
 
-  if (!menuToggle || !chapterNav) return;
+  if (!chapterSelector) return;
 
-  menuToggle.addEventListener('click', () => {
-    if (state.mobileMenuOpen) {
-      closeMobileMenu();
-    } else {
-      openMobileMenu();
-    }
-  });
+  // Toggle via menu button
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      toggleChapterSelector();
+    });
+  }
 
-  // Close menu when clicking outside
+  // Toggle via breadcrumb click
+  if (navFileBtn) {
+    navFileBtn.addEventListener('click', () => {
+      toggleChapterSelector();
+    });
+  }
+
+  // Close when clicking outside
   document.addEventListener('click', (e) => {
-    if (state.mobileMenuOpen &&
-        !e.target.closest('.chapter-nav') &&
-        !e.target.closest('.menu-toggle')) {
-      closeMobileMenu();
+    if (state.chapterSelectorOpen &&
+        !e.target.closest('.chapter-selector') &&
+        !e.target.closest('.menu-toggle') &&
+        !e.target.closest('.nav-file-btn')) {
+      closeChapterSelector();
     }
+  });
+
+  // Handle chapter selection
+  chapterSelector.querySelectorAll('.chapter-selector-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = item.getAttribute('href').slice(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        closeChapterSelector();
+      }
+    });
   });
 }
 
-function openMobileMenu() {
-  const menuToggle = document.querySelector('.menu-toggle');
-  const chapterNav = document.querySelector('.chapter-nav');
-
-  state.mobileMenuOpen = true;
-  chapterNav.classList.add('open');
-  menuToggle.setAttribute('aria-expanded', 'true');
+function toggleChapterSelector() {
+  if (state.chapterSelectorOpen) {
+    closeChapterSelector();
+  } else {
+    openChapterSelector();
+  }
 }
 
-function closeMobileMenu() {
+function openChapterSelector() {
   const menuToggle = document.querySelector('.menu-toggle');
-  const chapterNav = document.querySelector('.chapter-nav');
+  const navFileBtn = document.getElementById('nav-file-btn');
+  const chapterSelector = document.getElementById('chapter-selector');
 
-  state.mobileMenuOpen = false;
-  chapterNav.classList.remove('open');
-  menuToggle.setAttribute('aria-expanded', 'false');
+  state.chapterSelectorOpen = true;
+  chapterSelector.hidden = false;
+  if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
+  if (navFileBtn) navFileBtn.setAttribute('aria-expanded', 'true');
+}
+
+function closeChapterSelector() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navFileBtn = document.getElementById('nav-file-btn');
+  const chapterSelector = document.getElementById('chapter-selector');
+
+  state.chapterSelectorOpen = false;
+  chapterSelector.hidden = true;
+  if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+  if (navFileBtn) navFileBtn.setAttribute('aria-expanded', 'false');
+}
+
+// ==========================================================================
+// Breadcrumb Navigation (v1.2)
+// ==========================================================================
+
+function initBreadcrumbNav() {
+  // Initial path based on hash or default
+  const hash = window.location.hash.slice(1);
+  if (hash && chapterFiles[hash]) {
+    updateBreadcrumbPath(hash);
+  }
 }
 
 // ==========================================================================

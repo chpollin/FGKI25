@@ -77,6 +77,29 @@ _project/
 
 ## Session Log
 
+### Session 3: Neue Session
+**Datum**: 16. Dezember 2025
+**Modell**: Claude Opus 4.5 via Claude Code
+**Kontext**: Fortsetzung nach Session 2
+
+#### Ausgangslage
+- Milestone 1 (Foundation): ✅ COMPLETE
+- Milestone 2 (Assets): ⏳ IN PROGRESS
+  - 5 Bilder mit `<img>` Tags vorbereitet (mit Fallback-SVGs)
+  - Bilder noch nicht in `assets/images/` vorhanden
+- 3 Commits dokumentiert im .mg System
+
+#### Bekannte Content-Lücken (aus README)
+1. Bild `claude-promptotyping-screenshot.png` (Abb. 3 im Context-Kapitel)
+2. AGI-Definitionen von Legg-Hutter und Wang (AJI-Kapitel)
+3. "Haters gonna hate" Blogpost-Absatz (Context-Kapitel)
+4. Ressourcen-Sektion mit Vorträge-Liste
+
+#### Nächste Schritte
+→ Awaiting user input
+
+---
+
 ### Session 2: Milestone 1 Complete
 **Datum**: 16. Dezember 2025
 **Modell**: Claude Opus 4.5 via Claude Code

@@ -1,8 +1,10 @@
-# DESIGN.md – FGKI25 Research Blog v1.1
+# DESIGN.md – FGKI25 Research Blog v1.2
 
 ## Design-for-Frontend Specification
 
 Source of Truth für "(Frontier-)Generative KI 2025". Kompakt, implementierungsnah.
+
+**v1.2 Update**: Terminal/IDE-Ästhetik ("Vibe Coding" Look)
 
 ---
 
@@ -10,29 +12,33 @@ Source of Truth für "(Frontier-)Generative KI 2025". Kompakt, implementierungsn
 
 ```css
 :root {
-  /* Backgrounds */
-  --bg-app: #0f0f0f;
-  --bg-card: #1a1a1e;
-  --bg-surface: #27272a;
-  --bg-elevated: #3f3f46;
-  --bg-figure: #2a2a2e;
-  
-  /* Text */
-  --text-primary: #e4e4e7;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  
-  /* Accent */
-  --accent: #22d3ee;
-  --accent-hover: #67e8f9;
-  
-  /* Border */
-  --border: #3f3f46;
-  
-  /* Typography */
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  
+  /* Backgrounds - Zinc Palette (nicht reines Schwarz) */
+  --bg-app: #09090b;        /* zinc-950 */
+  --bg-card: #18181b;       /* zinc-900 */
+  --bg-surface: #27272a;    /* zinc-800 */
+  --bg-elevated: #3f3f46;   /* zinc-700 */
+  --bg-figure: #27272a;
+
+  /* Text - Zinc Scale */
+  --text-primary: #fafafa;  /* zinc-50 */
+  --text-secondary: #a1a1aa; /* zinc-400 */
+  --text-muted: #71717a;    /* zinc-500 */
+  --text-dim: #52525b;      /* zinc-600 */
+
+  /* Accent - Cyan (Terminal-Vibe) */
+  --accent: #22d3ee;        /* cyan-400 */
+  --accent-hover: #67e8f9;  /* cyan-300 */
+  --accent-glow: rgba(34, 211, 238, 0.15);
+  --accent-glow-strong: rgba(34, 211, 238, 0.3);
+
+  /* Border - Zinc */
+  --border: #27272a;        /* zinc-800 */
+  --border-subtle: #3f3f46; /* zinc-700 */
+
+  /* Typography - Strict Separation */
+  --font-body: 'Inter', system-ui, sans-serif;      /* Content only */
+  --font-mono: 'JetBrains Mono', 'Geist Mono', 'Fira Code', monospace;  /* UI, Nav, Meta */
+
   /* Sizes */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -41,122 +47,157 @@ Source of Truth für "(Frontier-)Generative KI 2025". Kompakt, implementierungsn
   --text-xl: 1.5rem;
   --text-2xl: 2rem;
   --text-3xl: 2.5rem;
-  
+
   /* Layout */
   --content-width: 720px;
   --nav-height: 48px;
   --radius: 8px;
   --radius-lg: 12px;
   --radius-full: 9999px;
+
+  /* Glow Effects */
+  --glow-sm: 0 0 10px var(--accent-glow);
+  --glow-md: 0 0 20px var(--accent-glow);
+  --glow-lg: 0 0 30px var(--accent-glow-strong);
 }
 
 [data-theme="light"] {
-  --bg-app: #f5f5f5;
+  --bg-app: #fafafa;        /* zinc-50 */
   --bg-card: #ffffff;
-  --bg-surface: #f4f4f5;
-  --text-primary: #18181b;
-  --text-secondary: #52525b;
-  --accent: #0891b2;
-  --border: #e4e4e7;
+  --bg-surface: #f4f4f5;    /* zinc-100 */
+  --bg-elevated: #e4e4e7;   /* zinc-200 */
+  --text-primary: #18181b;  /* zinc-900 */
+  --text-secondary: #52525b; /* zinc-600 */
+  --text-muted: #71717a;    /* zinc-500 */
+  --accent: #0891b2;        /* cyan-600 */
+  --border: #e4e4e7;        /* zinc-200 */
+  --accent-glow: rgba(8, 145, 178, 0.1);
 }
 ```
 
 ---
 
-## 2. Layout
+## 2. Layout (v1.2 - Terminal/IDE Style)
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│ NAV: Reasoning  Exodus  [Agents]  Infrastruktur ...  ☀☾ │
+│ ~/research/2025/03-agents.md█               [☀] [≡]     │  ← Breadcrumb Nav
 │ ████████████░░░░░░░░░░░░░░░░░░░░░░░  Progress Bar       │
 ├──────────────────────────────────────────────────────────┤
 │                                                          │
 │   ┌────────────────────────────────────────────────┐     │
-│   │  (Frontier-)Generative KI 2025                 │     │
+│   │  (Frontier-)Generative KI 2025                 │     │  ← Sans-Serif
 │   │                                                │     │
-│   │  03                                            │     │
-│   │  Agentische Systeme funktionieren              │     │
-│   │  [CLAUDE CODE] [AGENTS] [AMODEI]               │     │
+│   │  03                                            │     │  ← Monospace
+│   │  Agentische Systeme funktionieren              │     │  ← Sans-Serif
+│   │  `CLAUDE CODE` `AGENTS` `AMODEI`               │     │  ← Monospace Tags
 │   │                                                │     │
-│   │  Body text...                                  │     │
+│   │  Body text in Sans-Serif...                    │     │
 │   │                                                │     │
 │   │  ┌──────────────────────────────────────┐      │     │
-│   │  │ Blockquote mit Cyan-Border           │      │     │
+│   │  │ Blockquote mit Cyan-Border + Glow    │      │     │
 │   │  └──────────────────────────────────────┘      │     │
 │   │                                                │     │
 │   │  ┌──────────────────────────────────────┐      │     │
 │   │  │         [ Figure ]                   │      │     │
 │   │  └──────────────────────────────────────┘      │     │
-│   │  Figure 1. Caption text                        │     │
+│   │  Abb. 1: Caption (Monospace Label)             │     │
 │   │                                                │     │
 │   └────────────────────────────────────────────────┘     │
 │                                                          │
-│                              [▶ Auf SUNO anhören]  ←───── Sticky
+│ > playing: trotzdem_v5.mp3 [02:14] ████░░░░░░  ←──────── Console Footer
 └──────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 3. Navigation
+## 3. Navigation (v1.2 - BreadcrumbNav)
+
+**Konzept**: Terminal-Pfad-Metapher statt klassischer Tab-Navigation
 
 ```html
-<nav class="nav">
-  <a href="#reasoning">Reasoning</a>
-  <a href="#agents" class="active">[ Agents ]</a>
-  <a href="#exodus">Exodus</a>
-  <a href="#infrastruktur">Infrastruktur</a>
-  <a href="#scaling">Scaling</a>
-  <a href="#context">Context</a>
-  <a href="#research">Research</a>
-  <a href="#aji">AJI</a>
-  <a href="#expert">Expert</a>
-  <a href="#problems">Problems</a>
-  <a href="#trotzdem">trotzdem</a>
-  <span class="nav-overflow">›</span>
+<nav class="breadcrumb-nav">
+  <span class="nav-prefix">~/research/2025/</span>
+  <span class="nav-file" id="current-path">03-agents.md</span>
+  <span class="nav-cursor">█</span>
   <div class="nav-actions">
-    <button class="theme-toggle">☀</button>
+    <button class="theme-toggle" aria-label="Theme wechseln">☀</button>
+    <button class="menu-toggle" aria-label="Kapitel-Menu">≡</button>
   </div>
 </nav>
 <div class="progress-bar"></div>
+
+<!-- Hidden: Chapter Selector (appears on click) -->
+<div class="chapter-selector" hidden>
+  <a href="#intro" data-file="00-intro.md">Intro</a>
+  <a href="#januar-schock" data-file="01-januar.md">Januar-Schock</a>
+  <a href="#reasoning-monopoly" data-file="02-reasoning.md">Reasoning</a>
+  <!-- ... -->
+</div>
 ```
 
 ```css
-.nav {
+.breadcrumb-nav {
   position: sticky;
   top: 0;
   height: var(--nav-height);
   background: var(--bg-card);
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0;
   padding: 0 1.5rem;
-  overflow-x: auto;
   border-bottom: 1px solid var(--border);
-}
-
-.nav a {
-  color: var(--text-secondary);
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
-  white-space: nowrap;
-  text-decoration: none;
 }
 
-.nav a:hover { color: var(--text-primary); }
+.nav-prefix {
+  color: var(--text-muted);
+}
 
-.nav a.active {
-  color: var(--accent);
+.nav-file {
+  color: var(--text-primary);
   font-weight: 500;
 }
 
-.nav-overflow {
-  color: var(--text-muted);
-  font-size: var(--text-lg);
+.nav-cursor {
+  color: var(--accent);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.nav-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .progress-bar {
-  height: 3px;
+  height: 2px;
   background: var(--accent);
   width: var(--progress, 0%);
+  box-shadow: var(--glow-sm);
+}
+```
+
+### Dynamisches Verhalten (JS)
+
+```javascript
+// Pfad aktualisiert sich beim Scrollen
+const chapterFiles = {
+  'intro': '00-intro.md',
+  'januar-schock': '01-januar.md',
+  'reasoning-monopoly': '02-reasoning.md',
+  'agentische-systeme': '03-agents.md',
+  // ...
+};
+
+function updateNavPath(chapterId) {
+  const pathEl = document.getElementById('current-path');
+  pathEl.textContent = chapterFiles[chapterId] || '00-intro.md';
 }
 ```
 
@@ -288,37 +329,79 @@ Source of Truth für "(Frontier-)Generative KI 2025". Kompakt, implementierungsn
 
 ---
 
-## 8. Audio Player
+## 8. Audio Player (v1.2 - ConsolePlayer)
+
+**Konzept**: System-Log-Stil statt Button-Look
 
 ```html
-<a href="https://suno.com/playlist/6c2e6236-5308-4e05-ba6b-97db23604473" class="audio-btn" target="_blank">
-  <span class="play-icon">▶</span>
-  Auf SUNO anhören
-</a>
+<footer class="console-player">
+  <span class="console-prompt">></span>
+  <span class="console-cmd">playing:</span>
+  <a href="https://suno.com/playlist/..." class="console-track" target="_blank">
+    trotzdem_v5.mp3
+  </a>
+  <span class="console-time">[02:14]</span>
+  <div class="console-progress">
+    <div class="console-progress-bar"></div>
+  </div>
+</footer>
 ```
 
 ```css
-.audio-btn {
+.console-player {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--accent);
-  color: #000;
-  font-size: var(--text-sm);
-  font-weight: 600;
-  padding: 0.75rem 1.25rem;
-  border-radius: var(--radius-full);
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(34, 211, 238, 0.3);
-  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 0 1rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  z-index: 100;
 }
 
-.audio-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(34, 211, 238, 0.4);
+.console-prompt {
+  color: var(--accent);
+}
+
+.console-cmd {
+  color: var(--text-muted);
+}
+
+.console-track {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.console-track:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.console-time {
+  color: var(--text-dim);
+}
+
+.console-progress {
+  flex: 1;
+  max-width: 120px;
+  height: 4px;
+  background: var(--bg-surface);
+  border-radius: 2px;
+  margin-left: auto;
+}
+
+.console-progress-bar {
+  height: 100%;
+  width: 35%;
+  background: var(--accent);
+  border-radius: 2px;
+  box-shadow: var(--glow-sm);
 }
 ```
 
@@ -400,6 +483,42 @@ document.querySelector('.theme-toggle').onclick = () => {
 | Audio Player | Outline → Solid Cyan |
 | Figures | Caption → Figure 1. Nummerierung |
 | Background | #18181b → #0f0f0f |
+
+| v1.1 → v1.2 | Änderung |
+|-------------|----------|
+| Navigation | Tabs → Breadcrumb Path (`~/research/2025/03-agents.md█`) |
+| Audio Player | Button → Console Log (`> playing: file.mp3 [02:14]`) |
+| Typografie | Mixed → Strict Sans/Mono Separation |
+| Farbpalette | Pure Black → Zinc Scale |
+| Effects | Flat → Glow Effects (`box-shadow: var(--glow-sm)`) |
+| Tags | Background Pills → Monospace Code Style |
+| Cursor | None → Blinking Block Cursor in Nav |
+| Borders | Simple → Panel-Style Borders (IDE-Vibe) |
+
+---
+
+## 13. Neue Komponenten (v1.2)
+
+### BreadcrumbNav
+- Ersetzt klassische Tab-Navigation
+- Terminal-Pfad-Metapher: `~/research/2025/03-agents.md█`
+- Blinkender Cursor am Ende
+- Dynamisch via JS beim Scrollen aktualisiert
+
+### ConsolePlayer
+- Ersetzt Button-Style Audio Player
+- System-Log-Ästhetik: `> playing: trotzdem_v5.mp3 [02:14]`
+- Minimale Progress-Bar mit Glow
+
+### Monospace Meta
+- Alle Metadaten in Monospace: Kapitelnummern, Tags, Timestamps
+- Tags als `code`-Style statt Pills
+- Chapter Numbers: `01`, `02`, etc. in Monospace
+
+### Glow Effects
+- Subtile Cyan-Glows für aktive Elemente
+- `--glow-sm`, `--glow-md`, `--glow-lg` als CSS-Variablen
+- Angewendet auf: Progress Bar, Blockquotes, aktive Panels
 
 ---
 

@@ -4,7 +4,7 @@
    ========================================================================== */
 
 /* ==========================================================================
-   Site Header
+   Site Header (v1.2 - Terminal Style)
    ========================================================================== */
 
 .site-header {
@@ -13,124 +13,245 @@
   left: 0;
   right: 0;
   z-index: var(--z-fixed);
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
+}
+
+/* ==========================================================================
+   Breadcrumb Navigation (v1.2)
+   ========================================================================== */
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  height: var(--header-height);
+  padding: 0 var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
   border-bottom: 1px solid var(--border-color);
 }
 
-.header-content {
+.nav-prefix {
+  color: var(--text-muted);
+}
+
+.nav-file-btn {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-sm) var(--space-md);
-  max-width: var(--content-width-wide);
-  margin: 0 auto;
-}
-
-/* Menu Toggle (Mobile) */
-.menu-toggle {
-  display: none;
   background: none;
   border: none;
-  padding: var(--space-sm);
+  padding: 0;
   cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.nav-file {
   color: var(--text-primary);
-}
-
-.menu-icon {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: currentColor;
-  position: relative;
-}
-
-.menu-icon::before,
-.menu-icon::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: currentColor;
-}
-
-.menu-icon::before {
-  top: -7px;
-}
-
-.menu-icon::after {
-  top: 7px;
-}
-
-/* Chapter Navigation */
-.chapter-nav {
-  display: flex;
-  gap: var(--space-xs);
-  overflow-x: auto;
-  flex: 1;
-  padding: var(--space-xs) 0;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.chapter-nav::-webkit-scrollbar {
-  display: none;
-}
-
-.chapter-nav-item {
-  flex-shrink: 0;
-  padding: var(--space-xs) var(--space-sm);
-  font-size: 0.75rem;
   font-weight: 500;
-  color: var(--text-muted);
-  text-decoration: none;
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
-  white-space: nowrap;
 }
 
-.chapter-nav-item:hover {
-  color: var(--text-primary);
-  background: var(--bg-secondary);
+.nav-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.2em;
+  background: var(--accent-learn);
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
 }
 
-.chapter-nav-item.active {
-  color: var(--accent-learn);
-  background: var(--bg-tertiary);
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.nav-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
 }
 
 /* Theme Toggle */
-.theme-toggle {
-  flex-shrink: 0;
+.theme-toggle,
+.menu-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--bg-secondary);
-  border: none;
-  border-radius: var(--radius-md);
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
   cursor: pointer;
   color: var(--text-secondary);
   transition: all var(--transition-fast);
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover,
+.menu-toggle:hover {
   background: var(--bg-tertiary);
   color: var(--text-primary);
+  border-color: var(--border-subtle);
 }
 
-.theme-toggle svg {
-  width: 20px;
-  height: 20px;
+.theme-toggle svg,
+.menu-toggle svg {
+  width: 18px;
+  height: 18px;
 }
 
-/* Progress Bar */
+/* ==========================================================================
+   Chapter Selector Dropdown (v1.2)
+   ========================================================================== */
+
+.chapter-selector {
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--space-sm);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--space-xs);
+  max-height: 60vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+
+.chapter-selector[hidden] {
+  display: none;
+}
+
+.chapter-selector-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.chapter-selector-item:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+}
+
+.chapter-selector-item.active {
+  background: var(--bg-tertiary);
+  color: var(--accent-learn);
+  border-color: var(--accent-learn);
+}
+
+.chapter-selector-item code {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  background: none;
+  padding: 0;
+}
+
+/* Progress Bar (v1.2 - with Glow) */
 .progress-bar {
-  height: 3px;
+  height: 2px;
   background: var(--accent-learn);
   width: 0%;
   transition: width 0.1s ease-out;
+  box-shadow: var(--glow-sm);
+}
+
+/* ==========================================================================
+   Console Player (v1.2 - Terminal Style Footer)
+   ========================================================================== */
+
+.console-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed);
+  height: 32px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0 var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.console-prompt {
+  color: var(--accent-learn);
+  font-weight: 600;
+}
+
+.console-cmd {
+  color: var(--text-muted);
+}
+
+.console-track {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.console-track:hover {
+  color: var(--accent-learn);
+}
+
+.console-time {
+  color: var(--text-dim);
+}
+
+.console-progress {
+  width: 80px;
+  height: 4px;
+  background: var(--bg-tertiary);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-left: auto;
+}
+
+.console-progress-bar {
+  height: 100%;
+  width: 35%;
+  background: var(--accent-learn);
+  border-radius: 2px;
+  box-shadow: var(--glow-sm);
+}
+
+.console-hint {
+  color: var(--text-dim);
+  font-size: 0.65rem;
+}
+
+/* Mobile: Responsive Breadcrumb */
+@media (max-width: 640px) {
+  .nav-prefix {
+    display: none;
+  }
+
+  .nav-file {
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .console-hint,
+  .console-time {
+    display: none;
+  }
+
+  .console-progress {
+    width: 60px;
+  }
 }
 
 /* ==========================================================================

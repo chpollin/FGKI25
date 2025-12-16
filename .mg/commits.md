@@ -7,6 +7,47 @@
 
 ## Commit Log
 
+### [004] UI Update v1.2 - Terminal/IDE Aesthetic
+**Hash**: `d4e5f6g` (simuliert)
+**Datum**: 16. Dezember 2025
+**Autor**: Christopher Pollin + Claude Opus 4.5
+**Milestone**: M2 Assets (Design Update)
+
+**Änderungen**:
+```
+M  index.html                    # Breadcrumb Nav, Chapter Selector, Console Player
+M  assets/css/main.css           # Zinc Palette, Glow Effects, --text-dim
+M  assets/css/layout.css         # BreadcrumbNav, ChapterSelector, ConsolePlayer Styles
+M  assets/js/app.js              # chapterFiles mapping, dynamic path, selector toggle
+M  knowledge/design.md           # v1.2 Specification update
+R  assets/images/*.png           # Renamed to descriptive filenames
+A  CLAUDE.md                     # Session learnings & project context
+```
+
+**Message**:
+```
+refactor: UI update v1.2 (Terminal/IDE Vibe)
+
+- Replace tab navigation with breadcrumb path: ~/research/2025/03-agents.md█
+- Add blinking cursor animation in nav
+- Chapter selector dropdown (click breadcrumb or menu)
+- Console-style audio player: > playing: trotzdem_v5.mp3 [--:--]
+- Zinc color palette (not pure black)
+- Glow effects for active elements (--glow-sm, --glow-md, --glow-lg)
+- Responsive: Mobile hides nav-prefix, ellipsis on long filenames
+- Strict typography separation: Sans-Serif (content) / Monospace (UI)
+
+Images renamed:
+- ami-agi-aji-asi.png ✓
+- hard-easy-problems.png ✓
+- promptotyping-sphere.png ✓
+- vibe-coding-tweet.png ✓
+
+Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
+```
+
+---
+
 ### [003] Images & Captions Setup
 **Hash**: `c3d4e5f` (simuliert)
 **Datum**: 16. Dezember 2025

@@ -33,32 +33,40 @@
   <!-- Skip Link -->
   <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
-  <!-- Header -->
+  <!-- Header - Breadcrumb Navigation (Terminal-Style) -->
   <header class="site-header">
-    <div class="header-content">
-      <button class="menu-toggle" aria-label="Navigation öffnen" aria-expanded="false">
-        <span class="menu-icon"></span>
+    <nav class="breadcrumb-nav" aria-label="Kapitel-Navigation">
+      <span class="nav-prefix">~/research/2025/</span>
+      <button class="nav-file-btn" id="nav-file-btn" aria-expanded="false" aria-haspopup="true">
+        <span class="nav-file" id="current-path">00-intro.md</span>
+        <span class="nav-cursor" aria-hidden="true"></span>
       </button>
-      <nav class="chapter-nav" aria-label="Kapitel-Navigation">
-        <a href="#intro" class="chapter-nav-item" data-chapter="intro">Intro</a>
-        <a href="#januar-schock" class="chapter-nav-item" data-chapter="januar-schock">Januar-Schock</a>
-        <a href="#reasoning-monopoly" class="chapter-nav-item" data-chapter="reasoning-monopoly">Reasoning</a>
-        <a href="#agentische-systeme" class="chapter-nav-item" data-chapter="agentische-systeme">Agents</a>
-        <a href="#forscher-exodus" class="chapter-nav-item" data-chapter="forscher-exodus">Exodus</a>
-        <a href="#infrastruktur" class="chapter-nav-item" data-chapter="infrastruktur">Infrastruktur</a>
-        <a href="#scaling" class="chapter-nav-item" data-chapter="scaling">Scaling</a>
-        <a href="#context-engineering" class="chapter-nav-item" data-chapter="context-engineering">Context</a>
-        <a href="#research-agents" class="chapter-nav-item" data-chapter="research-agents">Research</a>
-        <a href="#aji" class="chapter-nav-item" data-chapter="aji">AJI</a>
-        <a href="#critical-expert" class="chapter-nav-item" data-chapter="critical-expert">Expert</a>
-        <a href="#hard-problems" class="chapter-nav-item" data-chapter="hard-problems">Problems</a>
-        <a href="#trotzdem" class="chapter-nav-item" data-chapter="trotzdem">trotzdem</a>
-        <a href="#schluss" class="chapter-nav-item" data-chapter="schluss">Schluss</a>
-      </nav>
-      <button class="theme-toggle" aria-label="Farbschema wechseln">
-        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-      </button>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Farbschema wechseln">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button class="menu-toggle" aria-label="Kapitel-Menu öffnen" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </nav>
+    <!-- Chapter Selector Dropdown -->
+    <div class="chapter-selector" id="chapter-selector" hidden>
+      <a href="#intro" class="chapter-selector-item" data-chapter="intro" data-file="00-intro.md"><code>00</code> Intro</a>
+      <a href="#januar-schock" class="chapter-selector-item" data-chapter="januar-schock" data-file="01-januar.md"><code>01</code> Januar-Schock</a>
+      <a href="#reasoning-monopoly" class="chapter-selector-item" data-chapter="reasoning-monopoly" data-file="02-reasoning.md"><code>02</code> Reasoning</a>
+      <a href="#agentische-systeme" class="chapter-selector-item" data-chapter="agentische-systeme" data-file="03-agents.md"><code>03</code> Agents</a>
+      <a href="#forscher-exodus" class="chapter-selector-item" data-chapter="forscher-exodus" data-file="04-exodus.md"><code>04</code> Exodus</a>
+      <a href="#infrastruktur" class="chapter-selector-item" data-chapter="infrastruktur" data-file="05-infra.md"><code>05</code> Infrastruktur</a>
+      <a href="#scaling" class="chapter-selector-item" data-chapter="scaling" data-file="06-scaling.md"><code>06</code> Scaling</a>
+      <a href="#context-engineering" class="chapter-selector-item" data-chapter="context-engineering" data-file="07-context.md"><code>07</code> Context</a>
+      <a href="#research-agents" class="chapter-selector-item" data-chapter="research-agents" data-file="08-research.md"><code>08</code> Research</a>
+      <a href="#aji" class="chapter-selector-item" data-chapter="aji" data-file="09-aji.md"><code>09</code> AJI</a>
+      <a href="#critical-expert" class="chapter-selector-item" data-chapter="critical-expert" data-file="10-expert.md"><code>10</code> Expert</a>
+      <a href="#hard-problems" class="chapter-selector-item" data-chapter="hard-problems" data-file="11-problems.md"><code>11</code> Problems</a>
+      <a href="#trotzdem" class="chapter-selector-item" data-chapter="trotzdem" data-file="12-trotzdem.md"><code>12</code> trotzdem</a>
+      <a href="#schluss" class="chapter-selector-item" data-chapter="schluss" data-file="13-schluss.md"><code>13</code> Schluss</a>
     </div>
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
   </header>
@@ -646,20 +654,22 @@
     </article>
   </main>
 
-  <!-- Audio Player -->
-  <aside class="audio-player" aria-label="Audio Player">
-    <button class="audio-toggle" aria-label="Player minimieren">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
-    </button>
-    <div class="audio-info">
-      <span class="audio-title">trotzdem</span>
-      <span class="audio-artist">Digital Humanities Craft</span>
-    </div>
-    <a href="https://suno.com/playlist/6c2e6236-5308-4e05-ba6b-97db23604473" target="_blank" rel="noopener" class="audio-play-link">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-      <span>Auf SUNO anhören</span>
+  <!-- Console Player (Terminal-Style Audio Footer) -->
+  <footer class="console-player" aria-label="Audio Player">
+    <span class="console-prompt" aria-hidden="true">></span>
+    <span class="console-cmd">playing:</span>
+    <a href="https://suno.com/playlist/6c2e6236-5308-4e05-ba6b-97db23604473"
+       target="_blank"
+       rel="noopener"
+       class="console-track">
+      trotzdem_v5.mp3
     </a>
-  </aside>
+    <span class="console-time">[--:--]</span>
+    <div class="console-progress">
+      <div class="console-progress-bar"></div>
+    </div>
+    <span class="console-hint">click to open</span>
+  </footer>
 
   <!-- Footer -->
   <footer class="site-footer">
